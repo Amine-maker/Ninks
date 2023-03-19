@@ -1,0 +1,24 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "editor.codeActionsOnSave": {
+       "source.fixAll.eslint": true
+    },
+    "eslint.workingDirectories": [
+       "./front",
+       "./back"
+    ],
+    "eslint.validate": [
+       "javascript",
+       "typescript",
+       "javascriptreact",
+       "typescriptreact"
+       
+    ],
+    "editor.tabSize": 3,
+    "[javascript, json, typescript]": {
+       "editor.formatOnSave": false
+    },
+    "files.eol": "\n",
+    "prettier.printWidth": 999999
+ }
