@@ -1,10 +1,11 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { envLocal } from "../../core/utils/constante";
 
 const LoginButtonComponent = (): JSX.Element => {
   const { loginWithRedirect, isAuthenticated, user } = useAuth0();
 
-  console.log(user, isAuthenticated);
+  console.log(envLocal);
 
   return (
     <>
