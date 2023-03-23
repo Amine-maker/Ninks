@@ -5,20 +5,21 @@ import { envLocal } from "../../core/utils/constante";
 const LoginButtonComponent = (): JSX.Element => {
   const { loginWithRedirect, isAuthenticated, user } = useAuth0();
 
-  console.log(envLocal);
+  console.log(envLocal, isAuthenticated);
 
   return (
     <>
-      {isAuthenticated && <div> auth, {user?.name}</div>}
-      <button
-        onClick={() => {
-          void (async () => {
-            await loginWithRedirect();
-          })();
-        }}
-      >
-        Log In
-      </button>
+      {!isAuthenticated && (
+        <button
+          onClick={() => {
+            void (async () => {
+              await loginWithRedirect();
+            })();
+          }}
+        >
+          Log in
+        </button>
+      )}
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
     </>
   );
