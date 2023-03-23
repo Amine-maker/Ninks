@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  backend:
+    build: ./back
+    container_name: "backend-container"
+    ports:
+      - 5000:5000
+    volumes:
+      - ./back:/usr/src/app/back
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb"
+    ports:
+      - 27017:27017
+  frontend:
+    build: ./front
+    container_name: "frontend-container"
+    command: npm run dev
+    ports:
+      - 5173:5173
+    volumes:
+       - ./front:/usr/src/app/front
+       - /usr/src/app/front/node_modules
