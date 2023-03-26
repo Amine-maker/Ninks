@@ -1,9 +1,10 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { envLocal } from "../../core/utils/constante";
+import { type IUser } from "../../core/utils/interface";
 
 const LoginButtonComponent = (): JSX.Element => {
-  const { loginWithRedirect, isAuthenticated, user } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, user } = useAuth0<IUser>();
 
   console.log(envLocal, isAuthenticated);
 

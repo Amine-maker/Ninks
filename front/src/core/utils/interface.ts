@@ -16,8 +16,12 @@ export interface IUser {
 export interface Link {
   id: string;
   name: string;
+  type: string;
+  pattern: Pattern;
   userId: string;
 }
+
+export type Pattern = "";
 
 export interface ApiUserDataToken {
   accessToken: string;
