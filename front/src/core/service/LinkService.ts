@@ -10,6 +10,7 @@ const LinkService = (): ILinkService => {
           id: site.data.id,
           name: site.data.name,
           userId: site.data.userId,
+          type: "",
         };
       });
     },

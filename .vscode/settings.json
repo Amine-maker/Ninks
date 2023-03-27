@@ -15,10 +15,11 @@
        "typescriptreact"
        
     ],
+    "editor.formatOnSave" : true,
     "editor.tabSize": 3,
     "[javascript, json, typescript]": {
        "editor.formatOnSave": false
     },
     "files.eol": "\n",
-    "prettier.printWidth": 999999
+    "prettier.printWidth": 999999,
  }

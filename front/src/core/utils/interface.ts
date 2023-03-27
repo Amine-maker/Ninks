@@ -17,7 +17,7 @@ export interface Link {
   id: string;
   name: string;
   type: string;
-  pattern: Pattern;
+  pattern?: Pattern;
   userId: string;
 }
 
