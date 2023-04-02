@@ -13,6 +13,19 @@ export interface IUser {
   sites: Link[];
 }
 
+export interface GridLayoutItem {
+  i: number;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  add?: boolean;
+  minH: number;
+  minW: number;
+  maxW: number;
+  maxH: number;
+}
+
 export interface Link {
   id: string;
   name: string;

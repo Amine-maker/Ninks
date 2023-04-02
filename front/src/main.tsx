@@ -1,5 +1,4 @@
 import { Auth0Provider } from "@auth0/auth0-react";
-import { createAuth0Client } from "@auth0/auth0-spa-js";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";

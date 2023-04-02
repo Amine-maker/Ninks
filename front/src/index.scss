@@ -1,5 +1,9 @@
-@import url("./variable.scss");
-@import url("./normalize.scss");
+// @import url("./variable.scss");
+// @import url("./normalize.scss");
+
+@import "./variable";
+@import "./normalize";
+@import "./layout";
 
 @tailwind base;
 @tailwind components;
@@ -14,7 +18,7 @@
 }
 
 @layer base {
-      html, 
+  html,
   body {
     @apply font-body;
   }

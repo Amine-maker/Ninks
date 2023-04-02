@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { type ILinks } from "../../core/utils/interface";
 import { RenderIf } from "../../core/utils/utils";
-import { ArrowLeftOnRectangleIcon, ArrowRightOnRectangleIcon } from "@heroicons/react/24/solid";
 import AuthLayoutComponent from "../auth/AuthLayoutComponent";
 
 const LayoutComponent = (): JSX.Element => {
@@ -41,7 +40,7 @@ const LayoutComponent = (): JSX.Element => {
                         onClick={() => {
                           setCurrentLink(link.to);
                         }}
-                        className={`flex items-center ${link.hidden ? "hidden" : ""}  rounded-xl font-bold text-sm ${link.selected ? "text-cyan-900 bg-indigo-200 " : ""} gap-3  py-3 px-4`}
+                        className={`flex items-center ${link.hidden ? "hidden" : ""}  rounded-xl ${link.selected ? "text-cyan-900 bg-indigo-200 " : ""} gap-3  py-3 px-4`}
                       >
                         <RenderIf isTrue={Boolean(link.icon)}>{link.icon}</RenderIf>
                         {link.displayName}

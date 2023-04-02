@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import LayoutIndex from "../grid-layout/LayoutIndexComponent";
 
 const Profile = (): JSX.Element => {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -10,7 +11,7 @@ const Profile = (): JSX.Element => {
 
   return (
     <div>
-      <div>test</div>
+      <LayoutIndex></LayoutIndex>
       {isAuthenticated && (
         <div>
           test

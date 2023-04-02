@@ -23,7 +23,7 @@ const AuthLayoutComponent = (): JSX.Element => {
           className="flex items-center"
         >
           <ArrowRightOnRectangleIcon className="h-6" />
-          <span className="font-bold text-sm ml-2">Login or signup</span>
+          <span className="ml-2">Login or signup</span>
         </button>
       ) : (
         <button
