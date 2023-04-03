@@ -1,3 +1,4 @@
+import { type ErrorResponse } from "@remix-run/router";
 import { type Role } from "./enum";
 
 export interface ILoginPayload {
@@ -44,6 +45,19 @@ export interface ApiUserDataToken {
   username: string;
   email: string;
   sites: Link[];
+}
+
+export interface GenericError {
+  status: string;
+  data: string;
+  internal: boolean;
+  statusText: string;
+  error: ErrorMessage;
+}
+
+export interface ErrorMessage {
+  message: string;
+  stack: string;
 }
 
 export interface ApiUser extends Omit<IUser, "roles"> {
