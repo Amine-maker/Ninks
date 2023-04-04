@@ -11,6 +11,15 @@ interface Props {
   onLayoutChange: (layout: Layout[]) => void;
 }
 
+const defaultLinkConfig = {
+  w: 2,
+  h: 1,
+  minH: 1,
+  minW: 2,
+  maxW: 6,
+  maxH: 4,
+};
+
 const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols = { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }, rowHeight = 100, onLayoutChange }) => {
   const [gridLinkItems, setGridLinkItems] = useState<GridLayoutItem[]>([
     ...[0, 1, 2, 3, 4].map((i, key, list) => ({
@@ -18,15 +27,10 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
       x: i * 2,
       y: 0,
       add: i === list.length - 1,
-      w: 2,
-      h: 2,
-      minH: 1,
-      minW: 1,
-      maxW: 6,
-      maxH: 4,
+      ...defaultLinkConfig,
     })),
   ]);
-  const [newCounter, setNewCounter] = useState(0);
+  const [newCounter, setNewCounter] = useState(gridLinkItems.length);
   const [breakpoint, setBreakpoint] = useState<string>();
   const [currentCols, setCurrentCols] = useState<number>(cols.md);
 
@@ -38,12 +42,7 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
         i: newCounter,
         x: (gridLinkItems.length * 2) % (currentCols !== 0 ? currentCols : 12), // trouver un moyen de conditionner par rapport au currentCols
         y: Infinity, // puts it at the bottom
-        w: 2,
-        h: 2,
-        minH: 1,
-        minW: 1,
-        maxW: 6,
-        maxH: 4,
+        ...defaultLinkConfig,
       },
     ]);
 
