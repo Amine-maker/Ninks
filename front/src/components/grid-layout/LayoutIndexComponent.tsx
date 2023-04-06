@@ -9,11 +9,7 @@ const LayoutIndex: React.FC = (props) => {
     setLayout(newLayout);
   };
 
-  return (
-    <div>
-      <GridLayoutBaseComponent onLayoutChange={onLayoutChange} />
-    </div>
-  );
+  return <GridLayoutBaseComponent onLayoutChange={onLayoutChange} />;
 };
 
 export default LayoutIndex;

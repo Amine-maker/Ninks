@@ -6,7 +6,7 @@ import LayoutComponent from "./components/layout/LayoutComponent";
 import ErrorPage from "./components/page/ErrorPage";
 import Profile from "./components/page/ProfilePage";
 import { envLocal } from "./core/utils/constante";
-import "./index.scss";
+import "./index.css";
 
 const router = createBrowserRouter([
   {

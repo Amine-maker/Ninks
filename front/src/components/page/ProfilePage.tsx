@@ -19,7 +19,6 @@ const Profile = (): JSX.Element => {
           <p>{user?.email}</p>
         </div>
       )}
-      uytuyt
     </div>
   );
 };

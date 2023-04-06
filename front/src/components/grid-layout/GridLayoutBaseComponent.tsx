@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import _ from "lodash";
 import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
 import { type GridLayoutItem } from "../../core/utils/interface";
+import ButtonAddLinkComponent from "../items/ButtonAddLinkComponent";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 interface Props {
@@ -16,7 +17,7 @@ const defaultLinkConfig = {
   h: 1,
   minH: 1,
   minW: 2,
-  maxW: 6,
+  maxW: 10,
   maxH: 4,
 };
 
@@ -31,7 +32,7 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
     })),
   ]);
   const [newCounter, setNewCounter] = useState(gridLinkItems.length);
-  const [breakpoint, setBreakpoint] = useState<string>();
+  const [breakPoint, setBreakpoint] = useState<string>();
   const [currentCols, setCurrentCols] = useState<number>(cols.md);
 
   const onAddItem = (): void => {
@@ -85,7 +86,9 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
 
   return (
     <div>
-      <button onClick={onAddItem}>Add Item</button>
+      <ButtonAddLinkComponent onAddItem={onAddItem}>
+        <span>Add Item</span>
+      </ButtonAddLinkComponent>
       <ResponsiveReactGridLayout onLayoutChange={onLayoutChange} onBreakpointChange={onBreakpointChange} rowHeight={rowHeight} cols={cols} className={className}>
         {_.map(gridLinkItems, (el) => {
           return createElement(el);

@@ -82,6 +82,7 @@ export interface ILinks {
   displayName: string;
   selected: boolean;
   icon?: any;
+  customStyle?: React.CSSProperties;
 }
 
 export interface ICustomEventData {
