@@ -20,5 +20,10 @@
        "editor.formatOnSave": false
     },
     "files.eol": "\n",
-    "prettier.printWidth": 999999,
+   "prettier.printWidth": 999999,
+   "workbench.colorCustomizations": {
+      "activityBar.background": "#023240",
+      "titleBar.activeBackground": "#034659",
+      "titleBar.activeForeground": "#F3FCFF"
+   },
  }

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { type IUser } from "../../core/utils/interface";
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/solid";
+import { envLocal } from "../../core/utils/constante";
 
 const AuthLayoutComponent = (): JSX.Element => {
   const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0<IUser>();
@@ -9,6 +10,8 @@ const AuthLayoutComponent = (): JSX.Element => {
   useEffect(() => {
     console.log(isAuthenticated, user);
   }, [user]);
+
+  console.log(envLocal);
 
   return (
     <div className="p-4 flex flex-col gap-3">
