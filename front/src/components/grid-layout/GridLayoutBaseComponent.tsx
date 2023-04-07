@@ -85,7 +85,7 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
   };
 
   return (
-    <div>
+    <div className="flex flex-col gap-9">
       <ButtonAddLinkComponent onAddItem={onAddItem}>
         <span>Add Item</span>
       </ButtonAddLinkComponent>

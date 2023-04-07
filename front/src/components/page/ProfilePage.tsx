@@ -10,7 +10,8 @@ const Profile = (): JSX.Element => {
   }
 
   return (
-    <div>
+    <section className="flex flex-col gap-10">
+      <h1 className="text-7xl ">Bienvenue, Amine !</h1>
       <LayoutIndex></LayoutIndex>
       {isAuthenticated && (
         <div>
@@ -19,7 +20,7 @@ const Profile = (): JSX.Element => {
           <p>{user?.email}</p>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

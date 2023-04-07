@@ -5,7 +5,7 @@ import axiosInstance from "./ApiInterceptor";
 const LinkService = (): ILinkService => {
   return {
     async addLink(payload: LinkPayload): Promise<Link> {
-      return await axiosInstance.post(`${API_URL}/site/add`, payload).then((site) => {
+      return await axiosInstance.post(`${API_URL}/link/add`, payload).then((site) => {
         return {
           id: site.data.id,
           name: site.data.name,
@@ -19,7 +19,7 @@ const LinkService = (): ILinkService => {
         console.log("site supprimé");
       });
     },
-    async events(siteId: string): Promise<any[]> {
+    async getAllLinks(siteId: string): Promise<any[]> {
       return await axiosInstance
         .get<any[]>(`${API_URL}/event/getEvents`, {
           params: {
@@ -38,7 +38,7 @@ const LinkService = (): ILinkService => {
 interface ILinkService {
   addLink: (payload: LinkPayload) => Promise<Link>;
   remove: (siteId: string) => Promise<void>;
-  events: (siteId: string) => Promise<any[]>;
+  getAllLinks: (siteId: string) => Promise<any[]>;
 }
 
 export default LinkService;

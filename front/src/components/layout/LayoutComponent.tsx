@@ -70,9 +70,11 @@ const LayoutComponent = (): JSX.Element => {
       </aside>
       <section className="content w-full">
         <HeaderComponent />
-        <section className="max-w-7xl flex-75 p-5">
-          <Outlet />
-        </section>
+        <div className="flex justify-center">
+          <section className="max-w-8xl flex-75 p-5">
+            <Outlet />
+          </section>
+        </div>
       </section>
     </main>
   );

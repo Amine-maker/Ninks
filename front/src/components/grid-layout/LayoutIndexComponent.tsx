@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import GridLayoutBaseComponent from "./GridLayoutBaseComponent";
 
 const LayoutIndex: React.FC = (props) => {

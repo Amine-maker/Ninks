@@ -21,24 +21,27 @@
   --button-primary: #faae2b; /*ajouter des variantes aux bouton et changer le jaune */
   --button-text: #00473e;
 
-  /* teinte */
+  /* teinte (plus clair) */
 
   --background-invert: #475d5b3b;
   --background-invert-25: #89b1ad3b;
+  --paragraph-25: #779c99;
 
-  /* nuance */
+  /* nuance (plus sombre) */
 
-  --tertiary-25: #c53e34;
+  --tertiary-n-25: #c53e34;
+  --tertiary-n-50: #70231e;
 
   /* illustration */
 
   --stroke: #00332c;
-  --main: #f2f7f5;
+  --main: #ffffff9e;
   --highlight: #faae2b;
   --secondary: #ffa8ba;
   --tertiary: #fa5246;
 
-  /*    /$$$$$$$$ /$$
+  /*
+        /$$$$$$$$ /$$
        |__  $$__/| $$
           | $$   | $$$$$$$   /$$$$$$  /$$$$$$/$$$$   /$$$$$$   /$$$$$$$
           | $$   | $$__  $$ /$$__  $$| $$_  $$_  $$ /$$__  $$ /$$_____/
