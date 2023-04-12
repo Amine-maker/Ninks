@@ -19,7 +19,7 @@
     "[javascript, json, typescript]": {
        "editor.formatOnSave": false
     },
-    "files.eol": "\n",
+    "files.eol": "\r\n",
    "prettier.printWidth": 999999,
    "workbench.colorCustomizations": {
       "activityBar.background": "#023240",
