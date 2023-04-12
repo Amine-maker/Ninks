@@ -35,12 +35,11 @@ function LinkProvider({ children }: { children: React.ReactNode }): JSX.Element 
     if (callback != null) callback();
   };
 
-  const getEvents = async (siteId: string): Promise<any[]> => {
+  const getLinks = (siteId: string): void => {
     // definir l'interface d'un lien
-    return await siteService.events(siteId);
   };
 
-  const value = { sites, addLink, deleteLink, getEvents };
+  const value = { sites, addLink, deleteLink, getLinks };
 
   return <LinkContext.Provider value={value}>{children}</LinkContext.Provider>;
 }
@@ -49,6 +48,6 @@ export interface LinkContextType {
   sites?: Link[];
   addLink: (payload: LinkPayload, callback: VoidFunction) => void;
   deleteLink: (siteId: string, callback?: VoidFunction) => void;
-  getEvents: (siteId: string) => Promise<any[]>;
+  getLinks: (siteId: string) => void;
 }
 export default LinkProvider;
