@@ -10,7 +10,6 @@ interface Props {
 const ButtonAddLinkComponent = (props: Props): JSX.Element => {
   const [openDialog, setOpenDialog] = useState(false);
   console.log(openDialog);
-
   return (
     <>
       <div

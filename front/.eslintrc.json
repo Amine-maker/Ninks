@@ -3,6 +3,7 @@
     "browser": true,
     "es2021": true
   },
+
   "extends": ["plugin:react/recommended", "standard-with-typescript", "eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
   "parser": "@typescript-eslint/parser",
   "overrides": [],
@@ -15,6 +16,7 @@
   },
   "plugins": ["react", "prettier", "@typescript-eslint"],
   "rules": {
+    "linebreak-style": ["error", "windows"],
     "prettier/prettier": "error",
     "quotes": ["error", "double"]
   },
