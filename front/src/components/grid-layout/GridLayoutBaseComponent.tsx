@@ -3,6 +3,7 @@ import _ from "lodash";
 import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
 import { type GridLayoutItem } from "../../core/utils/interface";
 import ButtonAddLinkComponent from "../items/ButtonAddLinkComponent";
+import { toast } from "sonner";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 interface Props {
@@ -47,6 +48,11 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
       },
     ]);
 
+    toast.promise(async () => await new Promise((resolve, reject) => setTimeout(resolve, 2000)), {
+      loading: "Loading",
+      success: "Link has been added successfully",
+      error: "Error while adding link",
+    });
     setNewCounter(newCounter + 1);
   };
 
@@ -58,6 +64,11 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
   const onRemoveItem = (i: number): void => {
     console.log("removing", i);
     setGridLinkItems(gridLinkItems.filter((item) => item.i !== i));
+    toast.promise(async () => await new Promise((resolve, reject) => setTimeout(resolve, 500)), {
+      loading: "Loading",
+      success: "Link has been removed successfully",
+      error: "Error while removing link",
+    });
   };
 
   const createElement = (el: GridLayoutItem): JSX.Element => {

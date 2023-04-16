@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { type ILinks } from "../../core/utils/interface";
 import { RenderIf } from "../../core/utils/utils";
 import AuthLayoutComponent from "../auth/AuthLayoutComponent";
 import HeaderComponent from "./HeaderComponent";
+import { Toaster } from "sonner";
 
 const LayoutComponent = (): JSX.Element => {
   const location = useLocation();
@@ -37,6 +38,8 @@ const LayoutComponent = (): JSX.Element => {
 
   return (
     <main className="flex flex-row">
+      <Toaster duration={2000} closeButton richColors position="bottom-right" />
+
       <aside className="border-r max-w-lg flex-25 sticky top-0 h-screen border-gray-300 p-3">
         <div className="flex flex-col justify-between h-full">
           <div className="flex-grow">
