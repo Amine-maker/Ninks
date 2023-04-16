@@ -32,7 +32,7 @@
 
 @layer components {
   .add-link-button {
-    @apply flex p-5 hover:bg-gray-100 transition-base cursor-pointer border-2 gap-5 border-gray-300 rounded-2xl bg-main;
+    @apply flex p-5 hover:bg-gray-100 transition-base cursor-pointer border gap-5 border-background-invert rounded-2xl bg-main;
   }
 
   .link-button {

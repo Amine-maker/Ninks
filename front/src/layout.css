@@ -47,10 +47,11 @@
 }
 
 .react-grid-layout {
-  background: #eee;
+  background: transparent;
+  border: 1px solid red;
 }
 .layoutJSON {
-  background: #ddd;
+  background: #c70404;
   border: 1px solid black;
   margin-top: 10px;
   padding: 10px;
