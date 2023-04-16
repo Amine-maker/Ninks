@@ -50,7 +50,7 @@
   }
 
   .btn-primary {
-    @apply btn-base border-background-invert-25 bg-paragraph text-background hover:bg-paragraph-25 ring-paragraph-25;
+    @apply btn-base border-background-invert-25 bg-paragraph text-main hover:bg-paragraph-25 ring-paragraph-25;
   }
 
   .btn-secondary {
