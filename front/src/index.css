@@ -79,6 +79,9 @@
   color: white;
 }
 
+.item-choice-container {
+}
+
 .underline-move::after {
   content: "";
   position: absolute;

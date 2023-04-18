@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BiLink } from "react-icons/bi";
 import DialogBaseComponent from "../shared/DialogBaseComponent";
+import FormLinkComponent from "./FormLinkComponent";
 
 interface Props {
   children?: JSX.Element;
@@ -35,9 +36,7 @@ const ButtonAddLinkComponent = (props: Props): JSX.Element => {
           open={openDialog}
           setOpen={setOpenDialog}
         >
-          <div className="mt-2">
-            <p className="text-sm text-gray-500">form content a mettre</p>
-          </div>
+          <FormLinkComponent />
         </DialogBaseComponent>
         <div className="p-4 rounded-xl  bg-background-invert-25 place-content-center flex-wrap flex">
           <span className="rounded-full p-0.5">

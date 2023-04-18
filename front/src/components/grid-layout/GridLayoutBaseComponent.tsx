@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import _ from "lodash";
+import _, { reject } from "lodash";
 import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
 import { type GridLayoutItem } from "../../core/utils/interface";
 import ButtonAddLinkComponent from "../items/ButtonAddLinkComponent";
@@ -18,7 +18,7 @@ const defaultLinkConfig = {
   h: 1,
   minH: 1,
   minW: 2,
-  maxW: 10,
+  maxW: 8,
   maxH: 4,
 };
 
@@ -38,22 +38,27 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
 
   const onAddItem = (): void => {
     console.log("adding", newCounter);
-    setGridLinkItems([
-      ...gridLinkItems,
-      {
-        i: newCounter,
-        x: (gridLinkItems.length * 2) % (currentCols !== 0 ? currentCols : 12), // trouver un moyen de conditionner par rapport au currentCols
-        y: Infinity, // puts it at the bottom
-        ...defaultLinkConfig,
+    toast.promise(
+      async () => {
+        await new Promise((resolve, reject) => setTimeout(resolve, 1000)).then(() => {
+          setGridLinkItems([
+            ...gridLinkItems,
+            {
+              i: newCounter,
+              x: (gridLinkItems.length * 2) % (currentCols !== 0 ? currentCols : 12), // trouver un moyen de conditionner par rapport au currentCols
+              y: Infinity, // puts it at the bottom
+              ...defaultLinkConfig,
+            },
+          ]);
+          setNewCounter(newCounter + 1);
+        });
       },
-    ]);
-
-    toast.promise(async () => await new Promise((resolve, reject) => setTimeout(resolve, 2000)), {
-      loading: "Loading",
-      success: "Link has been added successfully",
-      error: "Error while adding link",
-    });
-    setNewCounter(newCounter + 1);
+      {
+        loading: "Loading",
+        success: "Link has been added successfully",
+        error: "Error while adding link",
+      }
+    );
   };
 
   const onBreakpointChange = (breakpoint: string, cols: number): void => {
