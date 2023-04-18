@@ -15,7 +15,7 @@ const LayoutComponent = (): JSX.Element => {
   };
 
   const selectedStyle: React.CSSProperties = {
-    outline: "2px solid var(--paragraph)",
+    outline: "1px solid var(--paragraph)",
     background: "var(--background-invert)",
   };
 

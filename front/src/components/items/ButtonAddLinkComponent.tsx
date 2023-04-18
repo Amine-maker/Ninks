@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BiLink } from "react-icons/bi";
-import DialogFormAddLinkComponent from "../shared/DialogFormAddLinkComponent";
+import DialogBaseComponent from "../shared/DialogBaseComponent";
 
 interface Props {
   children?: JSX.Element;
@@ -18,13 +18,27 @@ const ButtonAddLinkComponent = (props: Props): JSX.Element => {
         }}
         className="add-link-button"
       >
-        <DialogFormAddLinkComponent
+        <DialogBaseComponent
+          actions={[
+            {
+              label: "Ajouter",
+              className: "btn-primary",
+              clickCallback() {
+                props.onAddItem();
+              },
+            },
+            {
+              label: "Annuler",
+              className: "btn-secondary",
+            },
+          ]}
           open={openDialog}
           setOpen={setOpenDialog}
-          closeCallback={() => {
-            props.onAddItem();
-          }}
-        />
+        >
+          <div className="mt-2">
+            <p className="text-sm text-gray-500">form content a mettre</p>
+          </div>
+        </DialogBaseComponent>
         <div className="p-4 rounded-xl  bg-background-invert-25 place-content-center flex-wrap flex">
           <span className="rounded-full p-0.5">
             <BiLink size={20} color="var(--stroke)" />
