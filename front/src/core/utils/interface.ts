@@ -31,11 +31,11 @@ export interface Link {
   id: string;
   name: string;
   type: string;
-  pattern?: Pattern;
+  pattern?: LinkPattern;
   userId: string;
 }
 
-export type Pattern = "";
+export type LinkPattern = "Instagram" | "Facebook" | "Twitter" | "Stripe" | "Github" | "Paypal" | "Tiktok";
 
 export interface ApiUserDataToken {
   accessToken: string;
@@ -55,6 +55,14 @@ export interface GenericError {
   error: ErrorMessage;
 }
 
+export interface ILinkItemChoice {
+  icon: JSX.Element;
+  bgColor: string;
+  textColor: string;
+  name: LinkPattern;
+  description: string;
+}
+
 export interface ErrorMessage {
   message: string;
   stack: string;
@@ -65,7 +73,7 @@ export interface ApiUser extends Omit<IUser, "roles"> {
 }
 
 export interface UiRenderIf {
-  children: any;
+  children: JSX.Element | null;
   isTrue: boolean;
 }
 
@@ -81,11 +89,6 @@ export interface ILinks {
   hidden: boolean;
   displayName: string;
   selected: boolean;
-  icon?: any;
+  icon?: JSX.Element;
   customStyle?: React.CSSProperties;
-}
-
-export interface ICustomEventData {
-  x: number;
-  y?: number;
 }

@@ -11,7 +11,7 @@ const Profile = (): JSX.Element => {
 
   return (
     <section className="flex flex-col gap-10">
-      <h1 className="text-7xl ">Bienvenue, Amine !</h1>
+      <h1 className="text-7xl ">Bienvenue !</h1>
       <LayoutIndex></LayoutIndex>
       {isAuthenticated && (
         <div>

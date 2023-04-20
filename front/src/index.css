@@ -56,6 +56,9 @@
   .btn-secondary {
     @apply btn-base border-gray-300 bg-white text-button-text hover:bg-background ring-paragraph-25 transition-base;
   }
+  .input-base {
+    @apply rounded-lg ring-offset-1 focus:ring-2 transition-base border-background-invert-25 ring-paragraph-25;
+  }
 }
 
 .content {
@@ -98,4 +101,41 @@
 .underline-move:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+#label-input {
+  transition: all 0.1s ease-in-out;
+  color: #2c2c54;
+  position: absolute;
+  top: 30%;
+  left: 18px;
+  transform: scale(0.95);
+  opacity: 0.8;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+#input:focus ~ label#label-input,
+input#input:not(:placeholder-shown) ~ label#label-input {
+  top: -20% !important;
+  left: 2px !important;
+  transform: scale(0.8);
+  background: white;
+  color: var(--button-text);
+  padding: 0 6px;
+  opacity: 1;
+}
+
+#input {
+  font-size: 1rem;
+  outline-color: var(--button-text);
+  outline: unset;
+  border: 1px solid #bbbbbb;
+  padding: 17px 10px 10px 17px;
+  width: 100%;
+  color: var(--paragraph);
+}
+
+#input:focus {
+  outline-color: var(--button-text);
 }
