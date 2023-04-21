@@ -28,7 +28,11 @@ export default {
         "background-invert-25": "var(--background-invert-25)",
         "paragraph-25": "var(--paragraph-25)",
       },
+      boxShadow: {
+        min: "0px 0px 3px 0px #a1a1a136;",
+      },
     },
   },
   plugins: [],
 } satisfies Config;
+

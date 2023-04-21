@@ -105,14 +105,13 @@
 
 #label-input {
   transition: all 0.1s ease-in-out;
-  color: #2c2c54;
+  color: black;
   position: absolute;
   top: 30%;
   left: 18px;
   transform: scale(0.95);
   opacity: 0.8;
   pointer-events: none;
-  opacity: 0.8;
 }
 
 #input:focus ~ label#label-input,

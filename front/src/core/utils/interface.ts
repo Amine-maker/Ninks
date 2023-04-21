@@ -31,11 +31,15 @@ export interface Link {
   id: string;
   name: string;
   type: string;
-  pattern?: LinkPattern;
+  pattern?: LinkPatternName;
   userId: string;
 }
 
-export type LinkPattern = "Instagram" | "Facebook" | "Twitter" | "Stripe" | "Github" | "Paypal" | "Tiktok";
+export type LinkPatternName = "Instagram" | "Youtube" | "Twitter" | "Stripe" | "Github" | "Paypal" | "Tiktok" | "Dribbble" | "Reddit" | "Facebook" | "LinkedIn" | "Behance" | "Spotify" | "Custom";
+
+export type BgColor = `bg-[#${string}]`;
+export type TextColor = `text-[#${string}]`;
+export type BorderColor = `border-[#${string}]`;
 
 export interface ApiUserDataToken {
   accessToken: string;
@@ -57,10 +61,13 @@ export interface GenericError {
 
 export interface ILinkItemChoice {
   icon: JSX.Element;
-  bgColor: string;
-  textColor: string;
-  name: LinkPattern;
+  bgColor: BgColor;
+  borderColor: BorderColor;
+  textColor: TextColor;
+  baseLink?: string;
+  name: LinkPatternName;
   description: string;
+  fw?: boolean;
 }
 
 export interface ErrorMessage {
