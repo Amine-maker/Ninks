@@ -80,7 +80,7 @@ export interface ApiUser extends Omit<IUser, "roles"> {
 }
 
 export interface UiRenderIf {
-  children: JSX.Element | null;
+  children: any;
   isTrue: boolean;
 }
 
