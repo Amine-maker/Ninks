@@ -1,10 +1,12 @@
 import { API_URL } from "../utils/constante";
-import { type Link } from "../utils/interface";
+
+import { type ILinkItem } from "../utils/interface";
+
 import axiosInstance from "./ApiInterceptor";
 
 const LinkService = (): ILinkService => {
   return {
-    async addLink(payload: LinkPayload): Promise<Link> {
+    async addLink(payload: LinkPayload): Promise</* ILinkItem<null> */ any> {
       return await axiosInstance.post(`${API_URL}/link/add`, payload).then((site) => {
         return {
           id: site.data.id,
@@ -14,11 +16,13 @@ const LinkService = (): ILinkService => {
         };
       });
     },
+
     async remove(siteId: string): Promise<void> {
       await axiosInstance.delete(`${API_URL}/site/remove`, { params: { siteId } }).then((site) => {
         console.log("site supprimé");
       });
     },
+
     async getAllLinks(siteId: string): Promise<any[]> {
       return await axiosInstance
         .get<any[]>(`${API_URL}/event/getEvents`, {
@@ -36,7 +40,7 @@ const LinkService = (): ILinkService => {
 };
 
 interface ILinkService {
-  addLink: (payload: LinkPayload) => Promise<Link>;
+  addLink: (payload: LinkPayload) => Promise<ILinkItem<null>>;
   remove: (siteId: string) => Promise<void>;
   getAllLinks: (siteId: string) => Promise<any[]>;
 }
