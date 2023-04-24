@@ -69,9 +69,9 @@
 .abs-header {
   position: sticky;
   top: 0;
+  z-index: 3;
   left: 0;
   height: 70px;
-  z-index: 999;
   background: rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(6.2px);
 }
@@ -103,29 +103,29 @@
   transform-origin: bottom left;
 }
 
-#label-input {
+.label-input {
   transition: all 0.1s ease-in-out;
-  color: black;
+  color: rgba(0, 0, 0, 0.623);
   position: absolute;
   top: 30%;
   left: 18px;
-  transform: scale(0.95);
+  transform: scale(0.95) translateX(-2%);
   opacity: 0.8;
   pointer-events: none;
 }
 
-#input:focus ~ label#label-input,
-input#input:not(:placeholder-shown) ~ label#label-input {
+.input:focus ~ label.label-input,
+input.input:not(:placeholder-shown) ~ label#label-input {
   top: -20% !important;
   left: 2px !important;
-  transform: scale(0.8);
+  transform: scale(0.8) translateX(-10%);
   background: white;
   color: var(--button-text);
   padding: 0 6px;
   opacity: 1;
 }
 
-#input {
+.input {
   font-size: 1rem;
   outline-color: var(--button-text);
   outline: unset;
@@ -135,6 +135,6 @@ input#input:not(:placeholder-shown) ~ label#label-input {
   color: var(--paragraph);
 }
 
-#input:focus {
+.input:focus {
   outline-color: var(--button-text);
 }

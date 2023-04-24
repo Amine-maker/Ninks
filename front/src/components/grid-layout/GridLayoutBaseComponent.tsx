@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import _, { reject } from "lodash";
+import React, { useRef, useState } from "react";
+import _ from "lodash";
 import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
 import { type GridLayoutItem } from "../../core/utils/interface";
 import ButtonAddLinkComponent from "../items/ButtonAddLinkComponent";
 import { toast } from "sonner";
+import { RxCornerBottomRight } from "react-icons/rx";
+import { BsThreeDots } from "react-icons/bs";
+import { CiCircleRemove } from "react-icons/ci";
+import LayoutLinkItemComponent from "../items/LayoutLinkItemComponent";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 interface Props {
@@ -35,6 +39,7 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
   const [newCounter, setNewCounter] = useState(gridLinkItems.length);
   const [breakPoint, setBreakpoint] = useState<string>();
   const [currentCols, setCurrentCols] = useState<number>(cols.md);
+  const resizeRef = useRef(null);
 
   const onAddItem = (): void => {
     console.log("adding", newCounter);
@@ -86,26 +91,36 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
     const i = el.i;
     return (
       <div key={i} data-grid={el}>
-        (<span className="text">{i}</span>)
-        <span
-          className="remove"
-          style={removeStyle}
-          onClick={() => {
-            onRemoveItem(i);
+        <LayoutLinkItemComponent
+          key={i}
+          customStyle={removeStyle}
+          actions={{
+            remove(id) {
+              onRemoveItem(id);
+            },
           }}
-        >
-          x
-        </span>
+          layoutElement={el}
+        ></LayoutLinkItemComponent>
       </div>
     );
   };
 
   return (
     <div className="flex flex-col gap-9">
-      <ButtonAddLinkComponent onAddItem={onAddItem}>
-        <span>Add Item</span>
-      </ButtonAddLinkComponent>
-      <ResponsiveReactGridLayout onLayoutChange={onLayoutChange} onBreakpointChange={onBreakpointChange} rowHeight={rowHeight} cols={cols} className={className}>
+      <ButtonAddLinkComponent onAddItem={onAddItem} />
+      <ResponsiveReactGridLayout
+        resizeHandles={["se"]}
+        onLayoutChange={onLayoutChange}
+        resizeHandle={
+          <div className="react-resizable-handle" ref={resizeRef}>
+            <RxCornerBottomRight />
+          </div>
+        }
+        onBreakpointChange={onBreakpointChange}
+        rowHeight={rowHeight}
+        cols={cols}
+        className={className}
+      >
         {_.map(gridLinkItems, (el) => {
           return createElement(el);
         })}

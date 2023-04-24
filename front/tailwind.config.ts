@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 
+declare var require: any;
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -33,6 +35,6 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@headlessui/tailwindcss")],
 } satisfies Config;
 

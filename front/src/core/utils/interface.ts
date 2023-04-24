@@ -11,7 +11,7 @@ export interface IUser {
   username: string;
   email: string;
   roles: string[];
-  sites: Link[];
+  sites: any[];
 }
 
 export interface GridLayoutItem {
@@ -27,14 +27,6 @@ export interface GridLayoutItem {
   maxH: number;
 }
 
-export interface Link {
-  id: string;
-  name: string;
-  type: string;
-  pattern?: LinkPatternName;
-  userId: string;
-}
-
 export type LinkPatternName = "Instagram" | "Youtube" | "Twitter" | "Stripe" | "Github" | "Paypal" | "Tiktok" | "Dribbble" | "Reddit" | "Facebook" | "LinkedIn" | "Behance" | "Spotify" | "Custom";
 
 export type BgColor = `bg-[#${string}]`;
@@ -48,7 +40,7 @@ export interface ApiUserDataToken {
   tokenType: string;
   username: string;
   email: string;
-  sites: Link[];
+  sites: any[];
 }
 
 export interface GenericError {
@@ -69,6 +61,66 @@ export interface ILinkItemChoice {
   description: string;
   fw?: boolean;
 }
+
+export interface ILinkItem<T extends LinkPatternName | null> {
+  id: string;
+  userId: string;
+  icon: JSX.Element;
+  bgColor: BgColor;
+  borderColor: BorderColor;
+  textColor: TextColor;
+  baseLink?: string;
+  link: string;
+  name: T;
+  description: string;
+  actions: any;
+}
+
+export interface IAction {
+  popoverIcon?: JSX.Element;
+  callback: (params?: any) => void;
+}
+
+export interface IActionsBase {
+  remove: (id: number) => void;
+  update?: (id: number) => void;
+}
+
+export type LinkPatternNameTest = "Youtube" | "Twitter";
+
+// Création d'une interface pour chaque action personnalisée
+interface TwitterActions extends IActionsBase {
+  tweet: (message: string) => void;
+}
+interface InstagramActions extends IActionsBase {
+  send: (message: string) => void;
+}
+
+enum LinkPattern { // mettre ca dans les enum et ajouter tous les types
+  Instagram = "Instagram",
+  Twitter = "Twitter",
+
+  // Youtube = "Youtube",
+  // Stripe = "Stripe",
+  // Github = "Github",
+  // Paypal = "Paypal",
+  // Tiktok = "Tiktok",
+  // Dribbble = "Dribbble",
+  // Reddit = "Reddit",
+  // Facebook = "Facebook",
+  // LinkedIn = "LinkedIn",
+  // Behance = "Behance",
+  // Spotify = "Spotify",
+  // Custom = "Custom",
+}
+
+interface LinkPatternActions {
+  [LinkPattern.Instagram]: InstagramActions;
+  [LinkPattern.Twitter]: TwitterActions;
+  // ...
+}
+
+export type DispatchAction<T extends LinkPattern> = LinkPatternActions[T];
 
 export interface ErrorMessage {
   message: string;

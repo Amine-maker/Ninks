@@ -44,15 +44,32 @@ const FormLinkComponent = (): JSX.Element => {
             })}
           </div>
           <div className="flex-auto min-w-[300px] w-2/5 px-4 py-3">
-            <div className="choice h-40 border rounded-lg p-3 mb-5 bg-background">{choiceItem?.name}</div>
+            <div className="choice h-40 border rounded-lg p-3 mb-5 bg-background">
+              <div className={"item-choice  bg-opacity-20 min-w-[170px] h-full rounded-2xl flex justify-between flex-col"}>
+                <div className="flex gap-3">
+                  <div className="flex-0 w-14 h-14 p-1 flex items-center justify-center border rounded-xl bg-white shadow-min">{choiceItem?.icon}</div>
+                  <h3 className="place-self-center font-bold">{choiceItem?.name}</h3>
+                </div>
+                <div className={"p-2 text-sm"}>
+                  <p className="opacity-80">{choiceItem?.description}</p>
+                </div>
+              </div>
+            </div>
             <div className="flex flex-col gap-5">
-              <div className="relative">
-                <input type="text" placeholder=" " id="input" required className="input-cal input-base" />
-                <label id="label-input">Ajouter un lien</label>
+              <div className="flex">
+                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border border-r-0 border-gray-300 rounded-l-lg dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">{choiceItem?.baseLink}</span>
+                <div className="relative w-full">
+                  <input type="text" placeholder=" " required className="input-cal rounded-l-none input-base input" />
+                  <label className="label-input">Ajouter un lien</label>
+                </div>
               </div>
               <div className="relative">
-                <input type="text" placeholder=" " id="input" required className="input-cal rounded-lg input-base" />
-                <label id="label-input">Titre du lien</label>
+                <input type="text" placeholder=" " required className="input-cal input-base input" />
+                <label className="label-input">Titre du lien</label>
+              </div>
+              <div className="relative">
+                <input type="text" placeholder=" " required className="input-cal input-base input" />
+                <label className="label-input">Message personnalisé (Optionnel)</label>
               </div>
             </div>
           </div>
