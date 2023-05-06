@@ -6,6 +6,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("./assets/font/space_grotesk/SpaceGrotesk[wght].woff2");
+}
+
 .flex-25 {
   flex: 1 1 25%;
 }
