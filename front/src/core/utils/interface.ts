@@ -1,5 +1,6 @@
 import { type ErrorResponse } from "@remix-run/router";
 import { type Role } from "./enum";
+import { type DispatchAction, type LinkPattern } from "./actionLinkInterface";
 
 export interface ILoginPayload {
   username: string;
@@ -62,7 +63,7 @@ export interface ILinkItemChoice {
   fw?: boolean;
 }
 
-export interface ILinkItem<T extends LinkPatternName | null> {
+export interface ILinkItem<T extends LinkPattern> {
   id: string;
   userId: string;
   icon: JSX.Element;
@@ -71,56 +72,14 @@ export interface ILinkItem<T extends LinkPatternName | null> {
   textColor: TextColor;
   baseLink?: string;
   link: string;
-  name: T;
+  name: LinkPattern;
   description: string;
-  actions: any;
+  actions: DispatchAction<T>;
 }
 
-export interface IAction {
-  popoverIcon?: JSX.Element;
-  callback: (params?: any) => void;
-}
-
-export interface IActionsBase {
-  remove: (id: number) => void;
-  update?: (id: number) => void;
-}
-
-export type LinkPatternNameTest = "Youtube" | "Twitter";
-
-// Création d'une interface pour chaque action personnalisée
-interface TwitterActions extends IActionsBase {
-  tweet: (message: string) => void;
-}
-interface InstagramActions extends IActionsBase {
-  send: (message: string) => void;
-}
-
-enum LinkPattern { // mettre ca dans les enum et ajouter tous les types
-  Instagram = "Instagram",
-  Twitter = "Twitter",
-
-  // Youtube = "Youtube",
-  // Stripe = "Stripe",
-  // Github = "Github",
-  // Paypal = "Paypal",
-  // Tiktok = "Tiktok",
-  // Dribbble = "Dribbble",
-  // Reddit = "Reddit",
-  // Facebook = "Facebook",
-  // LinkedIn = "LinkedIn",
-  // Behance = "Behance",
-  // Spotify = "Spotify",
-  // Custom = "Custom",
-}
-
-interface LinkPatternActions {
-  [LinkPattern.Instagram]: InstagramActions;
-  [LinkPattern.Twitter]: TwitterActions;
-  // ...
-}
-
-export type DispatchAction<T extends LinkPattern> = LinkPatternActions[T];
+// const t: ILinkItem<LinkPattern.Behance> = {
+//   actions: { appreciate: { callback: () => {} } },
+// };
 
 export interface ErrorMessage {
   message: string;
@@ -132,7 +91,7 @@ export interface ApiUser extends Omit<IUser, "roles"> {
 }
 
 export interface UiRenderIf {
-  children: any;
+  children: unknown;
   isTrue: boolean;
 }
 
