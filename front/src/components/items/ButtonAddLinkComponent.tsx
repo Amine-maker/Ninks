@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { BiLink } from "react-icons/bi";
 import DialogBaseComponent from "../shared/DialogBaseComponent";
 import FormLinkComponent from "./FormLinkComponent";
+import { type LinkPatternName } from "../../core/utils/interface";
 
 interface Props {
   children?: JSX.Element;
-  onAddItem: () => void;
+  onAddItem: (linkType: LinkPatternName) => void;
 }
 
 const ButtonAddLinkComponent = (props: Props): JSX.Element => {
   const [openDialog, setOpenDialog] = useState(false);
-  console.log(openDialog);
   return (
     <>
       <div
@@ -25,7 +25,7 @@ const ButtonAddLinkComponent = (props: Props): JSX.Element => {
               label: "Ajouter",
               className: "btn-primary",
               clickCallback() {
-                props.onAddItem();
+                props.onAddItem("Custom");
               },
             },
             {

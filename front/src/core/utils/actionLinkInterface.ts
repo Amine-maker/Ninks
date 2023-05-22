@@ -1,13 +1,11 @@
-import { type ILinkItem } from "./interface";
-
 export interface IAction<T> {
   popoverIcon?: JSX.Element;
   callback: ActionCallback<T>;
 }
 
 export interface IActionsBase {
-  remove?: IAction<number>;
-  update?: IAction<number>;
+  remove: ActionCallback<number>;
+  update?: ActionCallback<number>;
 }
 
 // Création d'une interface pour chaque action personnalisée
@@ -101,14 +99,6 @@ interface LinkPatternActions {
   [LinkPattern.Custom]: CustomActions;
 }
 
-const instagramLink: DispatchAction<LinkPattern.Instagram> = {
-  send: {
-    callback: (payload) => {
-      return payload;
-    },
-  },
-};
-
-export type ActionCallback<T> = (payload?: T) => void;
+export type ActionCallback<T> = (payload: T) => void;
 
 export type DispatchAction<T extends LinkPattern> = LinkPatternActions[T];

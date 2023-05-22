@@ -2,7 +2,7 @@ import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import React, { Fragment, useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
-import { type IActionsBase, type IAction } from "../../core/utils/interface";
+import { type IActionsBase } from "../../core/utils/actionLinkInterface";
 
 interface IPopoverProps {
   actions: IActionsBase;
@@ -24,7 +24,7 @@ const PopoverBase = (props: IPopoverProps): JSX.Element => {
                     <div
                       onClick={() => {
                         close();
-                        props.actions.remove(1);
+                        props.actions.remove(2);
                       }}
                       key={"supprimer"}
                       className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"

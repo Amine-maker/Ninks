@@ -31,6 +31,7 @@ LinkChoiceMap.set("Instagram", {
   description: "partager vos photo et reels",
   icon: <InstaSVG width={45} />,
 });
+
 LinkChoiceMap.set("Twitter", {
   bgColor: "bg-[#1DA1F2]",
   textColor: "text-[#09639A]",
@@ -39,6 +40,7 @@ LinkChoiceMap.set("Twitter", {
   description: "partager vos tweets",
   icon: <TwitterSVG width={45} />,
 });
+
 LinkChoiceMap.set("Dribbble", {
   bgColor: "bg-[#EA4C89]",
   textColor: "text-[#F5809D]",

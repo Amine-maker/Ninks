@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { type LinkPatternName, type GridLayoutItem, type IActionsBase } from "../../core/utils/interface";
+import { type LinkPatternName, type GridLayoutItem, type ILinkItem } from "../../core/utils/interface";
 import PopoverBase from "../shared/PopoverBase";
+import { type LinkPattern, type IActionsBase } from "../../core/utils/actionLinkInterface";
 
 export interface ILayoutLinkProps {
-  type?: LinkPatternName;
   actions: IActionsBase;
   customStyle?: React.CSSProperties;
   layoutElement: GridLayoutItem;
 }
-
+// chaque element de lien
 const LayoutLinkItemComponent = (props: ILayoutLinkProps): JSX.Element => {
   const id = props.layoutElement.i;
-  const [openPanel, setOpenPanel] = useState<boolean>(false);
+  console.log(id, props);
+
   return (
     <>
       (<span className="text">{id}</span>)

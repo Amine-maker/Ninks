@@ -8,7 +8,7 @@ export const LinkContext = React.createContext<LinkContextType>(null!);
 
 function LinkProvider({ children }: { children: React.ReactNode }): JSX.Element {
   const { user } = useAuth();
-  const [sites, setLinks] = useState<Array<ILinkItem<null>> | undefined>([]);
+  const [sites, setLinks] = useState<Array<ILinkItem<any>> | undefined>([]);
   if (user?.sites[0] === null) user.sites = [];
 
   const { getCurrentUser } = UserService();
@@ -45,7 +45,7 @@ function LinkProvider({ children }: { children: React.ReactNode }): JSX.Element 
 }
 
 export interface LinkContextType {
-  sites?: Array<ILinkItem<null>>;
+  sites?: Array<ILinkItem<any>>;
   addLink: (payload: LinkPayload, callback: VoidFunction) => void;
   deleteLink: (siteId: string, callback?: VoidFunction) => void;
   getLinks: (siteId: string) => void;

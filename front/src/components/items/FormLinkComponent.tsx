@@ -2,17 +2,29 @@ import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { type ILinkItemChoice } from "../../core/utils/interface";
 import { LinkChoiceMap } from "../../core/utils/linkData";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-interface InputForm {
-  link: string;
-  title: string;
-  item: ILinkItemChoice;
-}
+const LinkInputSchema = z.object({ link: z.string(), title: z.string(), message: z.optional(z.string()), createdAt: z.coerce.date() });
+
+type LinkInputs = z.infer<typeof LinkInputSchema>;
 
 const FormLinkComponent = (): JSX.Element => {
-  const isSelectedChoice = (choice: ILinkItemChoice): boolean => {
-    return choice.name === choiceItem?.name;
-  };
+  // Récupère et valide les info du formulaire et passe les info aux parents qui vont instancier les liens et les passer à la fonction d'ajout du layout
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LinkInputs>({
+    resolver: zodResolver(LinkInputSchema),
+    defaultValues: {
+      link: "",
+      title: "",
+      message: "",
+      createdAt: new Date(),
+    },
+  });
 
   const [iterableLinkChoiceMap] = useState(Array.from(LinkChoiceMap.values()));
   // const { register, handleSubmit } = useForm();
@@ -64,7 +76,7 @@ const FormLinkComponent = (): JSX.Element => {
                 </div>
               </div>
               <div className="relative">
-                <input type="text" placeholder=" " required className="input-cal input-base input" />
+                <input type="text" placeholder="" required className="input-cal input-base input" />
                 <label className="label-input">Titre du lien</label>
               </div>
               <div className="relative">

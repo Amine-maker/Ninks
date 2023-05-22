@@ -40,7 +40,7 @@ const LinkService = (): ILinkService => {
 };
 
 interface ILinkService {
-  addLink: (payload: LinkPayload) => Promise<ILinkItem<null>>;
+  addLink: (payload: LinkPayload) => Promise<ILinkItem<any>>;
   remove: (siteId: string) => Promise<void>;
   getAllLinks: (siteId: string) => Promise<any[]>;
 }

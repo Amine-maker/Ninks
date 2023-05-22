@@ -1,6 +1,5 @@
-import { type ErrorResponse } from "@remix-run/router";
 import { type Role } from "./enum";
-import { type DispatchAction, type LinkPattern } from "./actionLinkInterface";
+import { type LinkPattern, type DispatchAction } from "./actionLinkInterface";
 
 export interface ILoginPayload {
   username: string;
@@ -26,6 +25,7 @@ export interface GridLayoutItem {
   minW: number;
   maxW: number;
   maxH: number;
+  linkType?: LinkPatternName;
 }
 
 export type LinkPatternName = "Instagram" | "Youtube" | "Twitter" | "Stripe" | "Github" | "Paypal" | "Tiktok" | "Dribbble" | "Reddit" | "Facebook" | "LinkedIn" | "Behance" | "Spotify" | "Custom";
@@ -72,13 +72,19 @@ export interface ILinkItem<T extends LinkPattern> {
   textColor: TextColor;
   baseLink?: string;
   link: string;
-  name: LinkPattern;
+  name: LinkPatternName;
   description: string;
   actions: DispatchAction<T>;
 }
 
-// const t: ILinkItem<LinkPattern.Behance> = {
-//   actions: { appreciate: { callback: () => {} } },
+// avoir access au donnée via le type LinkPatternName
+
+// const linkName: LinkPatternName = "Dribbble";
+
+// const enumLinkValue = LinkPattern[LinkPattern[linkName]];
+
+// const t: ILinkItem<typeof enumLinkValue> = {
+//   actions: {},
 // };
 
 export interface ErrorMessage {

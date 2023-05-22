@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import _ from "lodash";
 import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
-import { type GridLayoutItem } from "../../core/utils/interface";
+import { type LinkPatternName, type GridLayoutItem } from "../../core/utils/interface";
 import ButtonAddLinkComponent from "../items/ButtonAddLinkComponent";
 import { toast } from "sonner";
 import { RxCornerBottomRight } from "react-icons/rx";
@@ -41,14 +41,15 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
   const [currentCols, setCurrentCols] = useState<number>(cols.md);
   const resizeRef = useRef(null);
 
-  const onAddItem = (): void => {
+  const onAddItem = (linkType: LinkPatternName): void => {
     console.log("adding", newCounter);
     toast.promise(
       async () => {
-        await new Promise((resolve, reject) => setTimeout(resolve, 1000)).then(() => {
+        await new Promise((resolve) => setTimeout(resolve, 1000)).then(() => {
           setGridLinkItems([
             ...gridLinkItems,
             {
+              linkType,
               i: newCounter,
               x: (gridLinkItems.length * 2) % (currentCols !== 0 ? currentCols : 12), // trouver un moyen de conditionner par rapport au currentCols
               y: Infinity, // puts it at the bottom
@@ -71,9 +72,9 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
     setCurrentCols(cols);
   };
 
-  const onRemoveItem = (i: number): void => {
-    console.log("removing", i);
-    setGridLinkItems(gridLinkItems.filter((item) => item.i !== i));
+  const onRemoveItem = (id: number): void => {
+    console.log("removing", id);
+    setGridLinkItems(gridLinkItems.filter((item) => item.i !== id));
     toast.promise(async () => await new Promise((resolve, reject) => setTimeout(resolve, 500)), {
       loading: "Loading",
       success: "Link has been removed successfully",
@@ -88,14 +89,14 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
       top: 0,
       cursor: "pointer",
     };
-    const i = el.i;
+    const { i } = el;
     return (
       <div key={i} data-grid={el}>
         <LayoutLinkItemComponent
           key={i}
           customStyle={removeStyle}
           actions={{
-            remove(id) {
+            remove: (id) => {
               onRemoveItem(id);
             },
           }}
