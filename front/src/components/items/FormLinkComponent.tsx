@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { type ILinkItemChoice } from "../../core/utils/interface";
 import { LinkChoiceMap } from "../../core/utils/linkData";
 import { z } from "zod";
