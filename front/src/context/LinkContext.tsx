@@ -5,7 +5,9 @@ import { useAuth } from "../hooks/AuthHook";
 import { type ILinkItem } from "../core/utils/interface";
 
 export const LinkContext = React.createContext<LinkContextType>(null!);
-
+const t = (key: string): string => {
+  return key;
+};
 function LinkProvider({ children }: { children: React.ReactNode }): JSX.Element {
   const { user } = useAuth();
   const [sites, setLinks] = useState<Array<ILinkItem<any>> | undefined>([]);
