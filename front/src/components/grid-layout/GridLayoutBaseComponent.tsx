@@ -5,8 +5,6 @@ import { type LinkPatternName, type GridLayoutItem } from "../../core/utils/inte
 import ButtonAddLinkComponent from "../items/ButtonAddLinkComponent";
 import { toast } from "sonner";
 import { RxCornerBottomRight } from "react-icons/rx";
-import { BsThreeDots } from "react-icons/bs";
-import { CiCircleRemove } from "react-icons/ci";
 import LayoutLinkItemComponent from "../items/LayoutLinkItemComponent";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
