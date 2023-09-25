@@ -77,11 +77,9 @@ export interface ILinkItem<T extends LinkPattern> {
   actions: DispatchAction<T>;
 }
 
-// avoir access au donnée via le type LinkPatternName
+// Access au donnée via le type LinkPatternName
 
-// const linkName: LinkPatternName = "Dribbble";
-
-// const enumLinkValue = LinkPattern[LinkPattern[linkName]];
+// const enumLinkValue = LinkPattern[LinkPattern.Behance];
 
 // const t: ILinkItem<typeof enumLinkValue> = {
 //   actions: {},
