@@ -29,13 +29,13 @@ function AuthProvider({ children }: { children: React.ReactNode }): JSX.Element 
   }, [token]);
 
   const signin = async (userPayload: ILoginPayload, callback: VoidFunction): Promise<void> => {
-    const u = await authService.signin(userPayload, () => {
+    const user = await authService.signin(userPayload, () => {
       console.log("signin successful");
       callback();
     });
 
     setIsAuthenticated(true);
-    setCurrentUser(u as IUser);
+    setCurrentUser(user as IUser);
   };
 
   const register = async (userPayload: IRegisterPayload, callback: VoidFunction): Promise<void> => {
