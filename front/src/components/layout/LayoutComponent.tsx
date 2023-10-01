@@ -5,6 +5,7 @@ import { RenderIf } from "../../core/utils/utils";
 import AuthLayoutComponent from "../auth/AuthLayoutComponent";
 import HeaderComponent from "./HeaderComponent";
 import { Toaster } from "sonner";
+import { Button } from "@/components/ui/button";
 
 const LayoutComponent = (): JSX.Element => {
   const location = useLocation();
@@ -44,7 +45,10 @@ const LayoutComponent = (): JSX.Element => {
         <div className="flex flex-col justify-between h-full">
           <div className="flex-grow">
             <div className="px-4 flex justify-center items-center py-6 text-center ">
-              <h1 className="text-8xl mt-12 leading-none">Amine</h1>
+              <h1 className="text-8xl mt-12 leading-none">
+                {" "}
+                <Button>test</Button> Amine
+              </h1>
             </div>
             <div className="p-4">
               <ul className="space-y-2">
@@ -59,7 +63,7 @@ const LayoutComponent = (): JSX.Element => {
                         }}
                         className={`link-button ${link.hidden ? "hidden" : ""}`}
                       >
-                        <RenderIf isTrue={Boolean(link.icon)}>{link.icon}</RenderIf>
+                        <RenderIf isTrue={Boolean(link.icon)}>{link.icon!}</RenderIf>
                         {link.displayName}
                       </Link>
                     </li>

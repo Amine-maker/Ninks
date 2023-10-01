@@ -1,7 +1,6 @@
 import { type UiRenderIf } from "./interface";
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const RenderIf = ({ children, isTrue }: UiRenderIf) => {
+export const RenderIf = ({ children, isTrue }: UiRenderIf): typeof children | null => {
   return isTrue ? children : null;
 };
 

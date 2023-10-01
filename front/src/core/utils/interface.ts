@@ -95,7 +95,7 @@ export interface ApiUser extends Omit<IUser, "roles"> {
 }
 
 export interface UiRenderIf {
-  children: unknown;
+  children: JSX.Element;
   isTrue: boolean;
 }
 
