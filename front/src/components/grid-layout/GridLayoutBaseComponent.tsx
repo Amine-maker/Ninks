@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import _ from "lodash";
 import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
-import { type LinkPatternName, type GridLayoutItem } from "../../core/utils/interface";
+import { type LinkPatternName, type GridLayoutItem, ILinkItem } from "../../core/utils/interface";
 import ButtonAddLinkComponent from "../items/ButtonAddLinkComponent";
 import { toast } from "sonner";
 import { RxCornerBottomRight } from "react-icons/rx";

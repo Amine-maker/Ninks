@@ -1,5 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react";
-import React, { useState, Fragment } from "react";
+import React, { Fragment } from "react";
 
 interface Props {
   children: JSX.Element;
@@ -13,7 +13,7 @@ interface Props {
 export interface ActionDialog {
   label: string;
   className: string;
-  clickCallback?: () => void;
+  callback?: () => void;
 }
 
 const DialogBaseComponent = (props: Props): JSX.Element => {
@@ -49,7 +49,7 @@ const DialogBaseComponent = (props: Props): JSX.Element => {
                               type="button"
                               className={action.className}
                               onClick={() => {
-                                action.clickCallback?.();
+                                action.callback?.();
                                 close();
                               }}
                             >

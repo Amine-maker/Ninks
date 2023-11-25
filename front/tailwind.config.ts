@@ -42,6 +42,17 @@ module.exports = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          25: "#EAFFFD",
+          50: "#DFF3F1",
+          100: "#C9E6E3",
+          200: "#B0DFDB",
+          300: "#9BD1CC",
+          400: "#6AABA5",
+          500: "#5B918C",
+          600: "#527875",
+          700: "#475D5B",
+          800: "#3E5754",
+          900: "#304A47",
         },
         // secondary: {
         //   DEFAULT: "hsl(var(--secondary))",
@@ -94,3 +105,4 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate")],
 };
+
