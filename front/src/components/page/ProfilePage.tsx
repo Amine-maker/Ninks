@@ -25,3 +25,9 @@ const Profile = (): JSX.Element => {
 };
 
 export default Profile;
+
+const t = (): { id: string } => {
+  return { id: "test" };
+};
+
+t();

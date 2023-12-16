@@ -10,29 +10,29 @@ const t = (key: string): string => {
 };
 function LinkProvider({ children }: { children: React.ReactNode }): JSX.Element {
   const { user } = useAuth();
-  const [sites, setLinks] = useState<Array<ILinkItem<any>> | undefined>([]);
-  if (user?.sites[0] === null) user.sites = [];
+  const [links, setLinks] = useState<Array<ILinkItem<any>> | undefined>([]);
+  if (user?.links[0] === null) user.links = [];
 
   const { getCurrentUser } = UserService();
   const siteService = LinkService();
 
   useEffect(() => {
     if (user != null) {
-      setLinks(user.sites);
+      setLinks(user.links);
     }
   }, [user]);
 
   const addLink = async (sitePayload: LinkPayload, callback: VoidFunction): Promise<void> => {
     await siteService.addLink(sitePayload);
     void getCurrentUser().then((user) => {
-      setLinks(user?.sites);
+      setLinks(user?.links);
     });
     callback();
   };
   const deleteLink = async (siteId: string, callback?: VoidFunction): Promise<void> => {
     await siteService.remove(siteId);
     void getCurrentUser().then((user) => {
-      setLinks(user?.sites);
+      setLinks(user?.links);
     });
     if (callback != null) callback();
   };
@@ -41,7 +41,7 @@ function LinkProvider({ children }: { children: React.ReactNode }): JSX.Element 
     // definir l'interface d'un lien
   };
 
-  const value = { sites, addLink, deleteLink, getLinks };
+  const value = { links, addLink, deleteLink, getLinks };
 
   return <LinkContext.Provider value={value}>{children}</LinkContext.Provider>;
 }

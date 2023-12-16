@@ -18,10 +18,9 @@ function AuthProvider({ children }: { children: React.ReactNode }): JSX.Element 
         if (user != null) {
           setCurrentUser({
             email: user.email,
-            roles: user.authorities.map((role) => role.authority),
             id: user.id,
             username: user.username,
-            sites: user.sites,
+            links: user.links,
           });
         }
       });

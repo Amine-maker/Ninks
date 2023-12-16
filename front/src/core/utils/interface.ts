@@ -10,8 +10,7 @@ export interface IUser {
   id: string;
   username: string;
   email: string;
-  roles: string[];
-  sites: any[];
+  links: any[];
 }
 
 export interface GridLayoutItem {
@@ -90,9 +89,9 @@ export interface ErrorMessage {
   stack: string;
 }
 
-export interface ApiUser extends Omit<IUser, "roles"> {
+export type ApiUser = Omit<IUser, "roles"> & {
   authorities: Array<{ authority: string }>;
-}
+};
 
 export interface UiRenderIf {
   children: JSX.Element;
