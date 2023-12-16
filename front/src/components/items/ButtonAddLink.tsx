@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BiLink } from "react-icons/bi";
-import DialogBaseComponent from "../shared/DialogBaseComponent";
-import FormLinkComponent from "./FormLinkComponent";
+import DialogBase from "../shared/DialogBase";
+import FormLinkComponent from "./FormLink";
 import { type LinkPatternName } from "../../core/utils/interface";
 
 interface Props {
@@ -19,7 +19,7 @@ const ButtonAddLinkComponent = (props: Props): JSX.Element => {
         }}
         className="add-link-button"
       >
-        <DialogBaseComponent
+        <DialogBase
           actions={[
             {
               label: "Ajouter",
@@ -37,7 +37,7 @@ const ButtonAddLinkComponent = (props: Props): JSX.Element => {
           setOpen={setOpenDialog}
         >
           <FormLinkComponent />
-        </DialogBaseComponent>
+        </DialogBase>
         <div className="p-4 rounded-xl bg-background-invert-25 place-content-center flex-wrap flex">
           <span className="rounded-full p-0.5">
             <BiLink size={20} color="var(--stroke)" />

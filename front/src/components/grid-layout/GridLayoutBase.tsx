@@ -2,10 +2,10 @@ import React, { useRef, useState } from "react";
 import _ from "lodash";
 import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
 import { type LinkPatternName, type GridLayoutItem, ILinkItem } from "../../core/utils/interface";
-import ButtonAddLinkComponent from "../items/ButtonAddLinkComponent";
+import ButtonAddLinkComponent from "../items/ButtonAddLink";
 import { toast } from "sonner";
 import { RxCornerBottomRight } from "react-icons/rx";
-import LayoutLinkItemComponent from "../items/LayoutLinkItemComponent";
+import LayoutLinkItemComponent from "../items/LayoutLinkItem";
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 interface Props {

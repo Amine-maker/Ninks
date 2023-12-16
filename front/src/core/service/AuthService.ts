@@ -1,10 +1,11 @@
+import { supabase } from "@/config/supabase.config";
 import { API_URL } from "../utils/constante";
 import { type ApiUserDataToken, type ILoginPayload, type IRegisterPayload, type IUser } from "../utils/interface";
 import axiosInstance from "./ApiInterceptor";
 
 const AuthService = (): IAuthService => {
   return {
-    async signin(payload: ILoginPayload, callback: VoidFunction): Promise<IUser | null> {
+    async signIn(payload: ILoginPayload, callback: VoidFunction): Promise<IUser | null> {
       return await axiosInstance.post<ApiUserDataToken, { data: ApiUserDataToken }>(`${API_URL}/auth/login`, payload).then(
         (res) => {
           const dataTokenUser = res.data;
@@ -12,9 +13,8 @@ const AuthService = (): IAuthService => {
           const user: IUser = {
             email: dataTokenUser.email,
             id: dataTokenUser.id,
-            roles: dataTokenUser.roles,
             username: dataTokenUser.username,
-            sites: dataTokenUser.sites,
+            links: dataTokenUser.sites,
           };
           localStorage.setItem("token", token);
           callback();
@@ -25,48 +25,47 @@ const AuthService = (): IAuthService => {
         }
       );
     },
-    async register(payload: IRegisterPayload, callback: VoidFunction): Promise<IUser | null> {
-      return await axiosInstance
-        .post<ApiUserDataToken, { data: ApiUserDataToken }>(`${API_URL}/auth/signup`, payload)
-        .then(
-          (res) => {
-            const registerUser = res.data;
-            const user: IUser = {
-              email: registerUser.email,
-              id: registerUser.id,
-              roles: registerUser.roles,
-              username: registerUser.username,
-              sites: registerUser.sites,
-            };
-            void this.signin({ username: payload.username, password: payload.password }, () => {
-              console.log("good signin");
-            });
-            return user;
-          },
-          (err: string) => {
-            throw new Error(`Erreur lors de la connexion { err : ${err}}`);
-          }
-        )
-        .catch(() => {
-          throw new Error("Erreur lors de la connexion");
-        });
+    async register(payload: IRegisterPayload, callback: VoidFunction): /* Promise<IUser | null> */ Promise<any> {
+      const { data, error } = await supabase.auth.signUp({
+        email: payload.email,
+        password: payload.password,
+        options: { emailRedirectTo: "https://localhost:5173/home" },
+      });
+
+      // return await axiosInstance
+      //   .post<ApiUserDataToken, { data: ApiUserDataToken }>(`${API_URL}/auth/signup`, payload)
+      //   .then(
+      //     (res) => {
+      //       const registerUser = res.data;
+      //       const user: IUser = {
+      //         email: registerUser.email,
+      //         id: registerUser.id,
+      //         username: registerUser.username,
+      //         links: registerUser.sites,
+      //       };
+      //       void this.signIn({ username: payload.username, password: payload.password }, () => {
+      //         console.log("good signin");
+      //       });
+      //       return user;
+      //     },
+      //     (err: string) => {
+      //       throw new Error(`Erreur lors de la connexion { err : ${err}}`);
+      //     }
+      //   )
+      //   .catch(() => {
+      //     throw new Error("Erreur lors de la connexion");
+      //   });
     },
-    signout(callback: VoidFunction): void {
-      setTimeout(callback, 100);
-      this.clearToken();
-      callback();
-    },
-    clearToken(): void {
-      localStorage.removeItem("token");
+    async signOut(): Promise<void> {
+      const { error } = await supabase.auth.signOut();
     },
   };
 };
 
 interface IAuthService {
-  signin: (payload: ILoginPayload, callback: VoidFunction) => Promise<IUser | null>;
+  signIn: (payload: ILoginPayload, callback: VoidFunction) => Promise<IUser | null>;
   register: (payload: IRegisterPayload, callback: VoidFunction) => Promise<IUser | null>;
-  signout: (callback: VoidFunction) => void;
-  clearToken: () => void;
+  signOut: (callback: VoidFunction) => Promise<void>;
 }
 
 export default AuthService;

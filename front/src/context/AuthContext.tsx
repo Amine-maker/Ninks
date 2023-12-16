@@ -8,12 +8,12 @@ export const AuthContext = React.createContext<AuthContextType>(null!);
 function AuthProvider({ children }: { children: React.ReactNode }): JSX.Element {
   const [user, setUser] = useState<IUser | null>(null);
   const [isAuth, setIsAuthenticated] = useState<boolean>(false);
-  const [token] = useState<string | null>(localStorage.getItem("token"));
+  const [session] = useState<string | null>(localStorage.getItem("token"));
   const { getCurrentUser } = UserService();
   const authService = AuthService();
 
   useEffect(() => {
-    if (token != null) {
+    if (session != null) {
       void getCurrentUser().then((user) => {
         if (user != null) {
           setCurrentUser({
@@ -25,10 +25,10 @@ function AuthProvider({ children }: { children: React.ReactNode }): JSX.Element 
         }
       });
     }
-  }, [token]);
+  }, [session]);
 
   const signin = async (userPayload: ILoginPayload, callback: VoidFunction): Promise<void> => {
-    const user = await authService.signin(userPayload, () => {
+    const user = await authService.signIn(userPayload, () => {
       console.log("signin successful");
       callback();
     });
@@ -47,7 +47,7 @@ function AuthProvider({ children }: { children: React.ReactNode }): JSX.Element 
   };
 
   const signout = (callback: VoidFunction): void => {
-    authService.signout(() => {
+    authService.signOut(() => {
       setIsAuthenticated(false);
       setUser(null);
       callback();

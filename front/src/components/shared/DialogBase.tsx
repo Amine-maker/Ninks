@@ -15,7 +15,7 @@ export interface ActionDialog {
   callback?: () => void;
 }
 
-const DialogBaseComponent = (props: Props): JSX.Element => {
+const DialogBase = (props: Props): JSX.Element => {
   const close = (): void => {
     props.setOpen(false);
     props.closeCallback?.();
@@ -24,4 +24,4 @@ const DialogBaseComponent = (props: Props): JSX.Element => {
   return <></>;
 };
 
-export default DialogBaseComponent;
+export default DialogBase;

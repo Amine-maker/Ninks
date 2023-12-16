@@ -18,9 +18,10 @@
     "types": ["node"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"]
     }
   },
-  "include": ["src", "@/components/ui"],
+  "include": ["src", "@/components/ui", "src/config/tailwind.config.ts", "vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

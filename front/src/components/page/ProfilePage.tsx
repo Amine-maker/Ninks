@@ -1,33 +1,13 @@
 import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
-import LayoutIndex from "../grid-layout/LayoutIndexComponent";
+
+import BaseProfileLinks from "../grid-layout/BaseProfileLinks";
 
 const Profile = (): JSX.Element => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
-
   return (
     <section className="flex flex-col gap-10">
-      <h1 className="text-7xl ">Bienvenue !</h1>
-      <LayoutIndex></LayoutIndex>
-      {isAuthenticated && (
-        <div>
-          test
-          <h2>{user?.name}</h2>
-          <p>{user?.email}</p>
-        </div>
-      )}
+      <BaseProfileLinks />
     </section>
   );
 };
 
 export default Profile;
-
-const t = (): { id: string } => {
-  return { id: "test" };
-};
-
-t();

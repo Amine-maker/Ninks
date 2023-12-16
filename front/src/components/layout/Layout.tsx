@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { type ILinks } from "../../core/utils/interface";
-import { RenderIf } from "../../core/utils/utils";
-import AuthLayoutComponent from "../auth/AuthLayoutComponent";
-import HeaderComponent from "./HeaderComponent";
+import { type ILinks } from "@/core/utils/interface";
+import { RenderIf } from "@/core/utils/utils";
+import HeaderComponent from "./Header";
 import { Toaster } from "sonner";
 import { Button } from "@/components/ui/button";
+import AuthLayout from "../auth/AuthLayout";
 
-const LayoutComponent = (): JSX.Element => {
+const Layout = (): JSX.Element => {
   const location = useLocation();
-  const [currentLink, setCurrentLink] = useState<string>(location.pathname);
+  const [_, setCurrentLink] = useState<string>(location.pathname);
 
   const isSelected = (link: string): boolean => {
     return location.pathname.includes(link);
@@ -72,7 +72,7 @@ const LayoutComponent = (): JSX.Element => {
               </ul>
             </div>
           </div>
-          <AuthLayoutComponent />
+          <AuthLayout />
         </div>
       </aside>
       <section className="content w-full">
@@ -87,4 +87,4 @@ const LayoutComponent = (): JSX.Element => {
   );
 };
 
-export default LayoutComponent;
+export default Layout;
