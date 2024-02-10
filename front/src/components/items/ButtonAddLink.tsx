@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BiLink } from "react-icons/bi";
 import DialogBase from "../shared/DialogBase";
 import FormLinkComponent from "./FormLink";
-import { type LinkPatternName } from "../../core/utils/interface";
+import { type LinkPatternName } from "../../core/utils/interface.ui";
 
 interface Props {
   children?: JSX.Element;

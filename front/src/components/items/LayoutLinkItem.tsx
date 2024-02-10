@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { type LinkPatternName, type GridLayoutItem, type ILinkItem } from "../../core/utils/interface";
+import { type LinkPatternName, type GridLayoutItem, type ILinkItem } from "../../core/utils/interface.ui";
 import PopoverBase from "../shared/PopoverBase";
 import { type LinkPattern, type IActionsBase } from "../../core/utils/actionLinkInterface";
 

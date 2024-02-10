@@ -1,4 +1,4 @@
-import { type UiRenderIf } from "./interface";
+import { type UiRenderIf } from "./interface.ui";
 
 export const RenderIf = ({ children, isTrue }: UiRenderIf): typeof children | null => {
   return isTrue ? children : null;

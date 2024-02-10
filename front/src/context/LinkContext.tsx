@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import LinkService, { type LinkPayload } from "../core/service/LinkService";
 import UserService from "../core/service/UserService";
 import { useAuth } from "../hooks/AuthHook";
-import { type ILinkItem } from "../core/utils/interface";
+import { type ILinkItem } from "../core/utils/interface.ui";
 
 export const LinkContext = React.createContext<LinkContextType>(null!);
 function LinkProvider({ children }: { children: React.ReactNode }): JSX.Element {

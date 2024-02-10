@@ -113,3 +113,5 @@ export interface ILinks {
   icon?: JSX.Element;
   customStyle?: React.CSSProperties;
 }
+
+// Model

@@ -1,6 +1,6 @@
 import { supabase } from "@/config/supabase.config";
 import { API_URL } from "../utils/constante";
-import { type ApiUserDataToken, type ILoginPayload, type IRegisterPayload, type IUser } from "../utils/interface";
+import { type ApiUserDataToken, type ILoginPayload, type IRegisterPayload, type IUser } from "../utils/interface.ui";
 import axiosInstance from "./ApiInterceptor";
 
 const AuthService = (): IAuthService => {

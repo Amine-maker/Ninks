@@ -1,7 +1,7 @@
 import { API_URL } from "../utils/constante";
 import axiosInstance from "./ApiInterceptor";
 import jwtDecode from "jwt-decode";
-import { type ApiUser } from "../utils/interface";
+import { type ApiUser } from "../utils/interface.ui";
 
 const UserService = (): IUserService => {
   return {

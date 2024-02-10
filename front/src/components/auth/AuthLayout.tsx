@@ -1,5 +1,5 @@
 import React from "react";
-import { type IUser } from "../../core/utils/interface";
+import { type IUser } from "../../core/utils/interface.ui";
 import { envLocal } from "../../core/utils/constante";
 
 const AuthLayout = (): JSX.Element => {

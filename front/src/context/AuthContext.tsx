@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AuthService from "../core/service/AuthService";
 import UserService from "../core/service/UserService";
-import { type ILoginPayload, type IRegisterPayload, type IUser } from "../core/utils/interface";
+import { type ILoginPayload, type IRegisterPayload, type IUser } from "../core/utils/interface.ui";
 
 export const AuthContext = React.createContext<AuthContextType>(null!);
 
@@ -46,8 +46,8 @@ function AuthProvider({ children }: { children: React.ReactNode }): JSX.Element 
     setCurrentUser(u as IUser);
   };
 
-  const signout = (callback: VoidFunction): void => {
-    authService.signOut(() => {
+  const signout = async (callback: VoidFunction): Promise<void> => {
+    await authService.signOut(() => {
       setIsAuthenticated(false);
       setUser(null);
       callback();

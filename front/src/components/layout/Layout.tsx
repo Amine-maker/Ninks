@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { type ILinks } from "@/core/utils/interface";
+import { type ILinks } from "@/core/utils/interface.ui";
 import { RenderIf } from "@/core/utils/utils";
 import HeaderComponent from "./Header";
 import { Toaster } from "sonner";

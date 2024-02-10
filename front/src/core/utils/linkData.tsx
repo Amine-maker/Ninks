@@ -1,5 +1,5 @@
 import React from "react";
-import { type ILinkItemChoice, type LinkPatternName } from "./interface";
+import { type ILinkItemChoice, type LinkPatternName } from "./interface.ui";
 import { BsInstagram } from "react-icons/bs";
 import { ReactComponent as InstaSVG } from "../../assets/instagram-color-icon.svg";
 import { ReactComponent as TwitterSVG } from "../../assets/twitter-square-color-icon.svg";

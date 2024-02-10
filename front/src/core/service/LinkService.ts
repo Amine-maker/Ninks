@@ -1,6 +1,6 @@
 import { API_URL } from "../utils/constante";
 
-import { type ILinkItem } from "../utils/interface";
+import { type ILinkItem } from "../utils/interface.ui";
 
 import axiosInstance from "./ApiInterceptor";
 
