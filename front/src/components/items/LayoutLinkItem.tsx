@@ -8,7 +8,7 @@ export interface ILayoutLinkProps {
   customStyle?: React.CSSProperties;
   layoutElement: GridLayoutItem;
 }
-// chaque element de lien
+// each link item component
 const LayoutLinkItemComponent = (props: ILayoutLinkProps): JSX.Element => {
   const id = props.layoutElement.i;
   console.log(id, props);

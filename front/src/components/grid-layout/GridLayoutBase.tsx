@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import _ from "lodash";
 import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
 import { type LinkPatternName, type GridLayoutItem } from "../../core/utils/interface.ui";
@@ -6,8 +6,9 @@ import ButtonAddLinkComponent from "../items/ButtonAddLink";
 import { toast } from "sonner";
 import { RxCornerBottomRight } from "react-icons/rx";
 import LayoutLinkItemComponent from "../items/LayoutLinkItem";
-const ResponsiveReactGridLayout = WidthProvider(Responsive);
+import { DateTime } from "luxon";
 
+const ResponsiveReactGridLayout = WidthProvider(Responsive);
 interface Props {
   className?: string;
   cols?: { lg: number; md: number; sm: number; xs: number; xxs: number };
@@ -40,7 +41,7 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
     })),
   ]);
   const [newCounter, setNewCounter] = useState(gridLinkItems.length);
-  const [breakPoint, setBreakpoint] = useState<string>();
+  const [, setBreakpoint] = useState<string>();
   const [currentCols, setCurrentCols] = useState<number>(cols.md);
   const resizeRef = useRef(null);
 
@@ -69,6 +70,10 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
       },
     );
   };
+
+  useEffect(() => {
+    onAddMedia();
+  }, []);
 
   const onAddMedia = (): null => {
     return null;
