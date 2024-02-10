@@ -17,9 +17,11 @@ const UserService = (): IUserService => {
         const username: string = decodedToken.sub;
         console.log(username);
 
-        return await axiosInstance.get<ApiUser>(`${API_URL}/user/info/${username}`).then((response) => {
-          return response.data;
-        });
+        return await axiosInstance
+          .get<ApiUser>(`${API_URL}/user/info/${username}`)
+          .then((response) => {
+            return response.data;
+          });
       } catch (error) {
         return null;
       }

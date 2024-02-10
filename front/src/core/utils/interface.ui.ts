@@ -27,7 +27,21 @@ export interface GridLayoutItem {
   linkType?: LinkPatternName;
 }
 
-export type LinkPatternName = "Instagram" | "Youtube" | "Twitter" | "Stripe" | "Github" | "Paypal" | "Tiktok" | "Dribbble" | "Reddit" | "Facebook" | "LinkedIn" | "Behance" | "Spotify" | "Custom";
+export type LinkPatternName =
+  | "Instagram"
+  | "Youtube"
+  | "Twitter"
+  | "Stripe"
+  | "Github"
+  | "Paypal"
+  | "Tiktok"
+  | "Dribbble"
+  | "Reddit"
+  | "Facebook"
+  | "LinkedIn"
+  | "Behance"
+  | "Spotify"
+  | "Custom";
 
 export type BgColor = `bg-[#${string}]`;
 export type TextColor = `text-[#${string}]`;

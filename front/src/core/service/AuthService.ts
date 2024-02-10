@@ -1,31 +1,41 @@
 import { supabase } from "@/config/supabase.config";
 import { API_URL } from "../utils/constante";
-import { type ApiUserDataToken, type ILoginPayload, type IRegisterPayload, type IUser } from "../utils/interface.ui";
+import {
+  type ApiUserDataToken,
+  type ILoginPayload,
+  type IRegisterPayload,
+  type IUser,
+} from "../utils/interface.ui";
 import axiosInstance from "./ApiInterceptor";
 
 const AuthService = (): IAuthService => {
   return {
     async signIn(payload: ILoginPayload, callback: VoidFunction): Promise<IUser | null> {
-      return await axiosInstance.post<ApiUserDataToken, { data: ApiUserDataToken }>(`${API_URL}/auth/login`, payload).then(
-        (res) => {
-          const dataTokenUser = res.data;
-          const token = dataTokenUser.accessToken;
-          const user: IUser = {
-            email: dataTokenUser.email,
-            id: dataTokenUser.id,
-            username: dataTokenUser.username,
-            links: dataTokenUser.sites,
-          };
-          localStorage.setItem("token", token);
-          callback();
-          return user;
-        },
-        (err: string) => {
-          throw new Error(`Erreur lors de la connexion {${err}}`);
-        },
-      );
+      return await axiosInstance
+        .post<ApiUserDataToken, { data: ApiUserDataToken }>(`${API_URL}/auth/login`, payload)
+        .then(
+          (res) => {
+            const dataTokenUser = res.data;
+            const token = dataTokenUser.accessToken;
+            const user: IUser = {
+              email: dataTokenUser.email,
+              id: dataTokenUser.id,
+              username: dataTokenUser.username,
+              links: dataTokenUser.sites,
+            };
+            localStorage.setItem("token", token);
+            callback();
+            return user;
+          },
+          (err: string) => {
+            throw new Error(`Erreur lors de la connexion {${err}}`);
+          },
+        );
     },
-    async register(payload: IRegisterPayload, callback: VoidFunction): /* Promise<IUser | null> */ Promise<any> {
+    async register(
+      payload: IRegisterPayload,
+      callback: VoidFunction,
+    ): /* Promise<IUser | null> */ Promise<any> {
       const { data, error } = await supabase.auth.signUp({
         email: payload.email,
         password: payload.password,
