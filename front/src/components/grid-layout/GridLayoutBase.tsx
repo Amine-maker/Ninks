@@ -70,7 +70,9 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
     );
   };
 
-  const onAddMedia = (): void => {};
+  const onAddMedia = (): null => {
+    return null;
+  };
 
   const onBreakpointChange = (breakpoint: string, cols: number): void => {
     setBreakpoint(breakpoint);
