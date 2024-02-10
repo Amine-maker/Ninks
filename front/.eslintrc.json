@@ -4,7 +4,15 @@
     "es2021": true
   },
 
-  "extends": ["plugin:react/recommended", "standard-with-typescript", "eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+  "extends": [
+    "plugin:react/recommended",
+    "standard-with-typescript",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
   "parser": "@typescript-eslint/parser",
   "overrides": [],
   "root": true,
@@ -15,6 +23,7 @@
     "project": "tsconfig.json"
   },
   "plugins": ["react", "prettier", "@typescript-eslint"],
+
   "rules": {
     "@typescript-eslint/consistent-type-definitions": "off",
     "linebreak-style": ["error", "windows"],

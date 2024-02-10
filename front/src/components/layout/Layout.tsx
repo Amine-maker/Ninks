@@ -41,11 +41,11 @@ const Layout = (): JSX.Element => {
     <main className="flex flex-row">
       <Toaster duration={2000} closeButton richColors position="bottom-right" />
 
-      <aside className="border-r max-w-lg flex-25 sticky top-0 h-screen border-gray-300 p-3">
-        <div className="flex flex-col justify-between h-full">
+      <aside className="flex-25 sticky top-0 h-screen max-w-lg border-r border-gray-300 p-3">
+        <div className="flex h-full flex-col justify-between">
           <div className="flex-grow">
-            <div className="px-4 flex justify-center items-center py-6 text-center ">
-              <h1 className="text-8xl mt-12 leading-none">
+            <div className="flex items-center justify-center px-4 py-6 text-center ">
+              <h1 className="mt-12 text-8xl leading-none">
                 {" "}
                 <Button>test</Button> Amine
               </h1>
@@ -78,7 +78,7 @@ const Layout = (): JSX.Element => {
       <section className="content w-full">
         <HeaderComponent />
         <div className="flex justify-center">
-          <section className="max-w-8xl flex-75 p-5">
+          <section className="flex-75 max-w-8xl p-5">
             <Outlet />
           </section>
         </div>

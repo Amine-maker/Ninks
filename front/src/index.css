@@ -37,32 +37,32 @@
 
 @layer components {
   .add-link-button {
-    @apply flex p-5 hover:bg-gray-100 transition-base cursor-pointer border gap-5 border-background-invert rounded-2xl bg-main;
+    @apply transition-base flex cursor-pointer gap-5 rounded-2xl border border-background-invert bg-main p-5 hover:bg-gray-100;
   }
 
   .link-button {
-    @apply font-display flex items-center rounded-xl gap-3 py-3 px-4
-      text-button-text font-bold hover:bg-background-invert-25
-      active:bg-background-invert transition-base;
+    @apply transition-base flex items-center gap-3 rounded-xl px-4 py-3
+      font-display font-bold text-button-text
+      hover:bg-background-invert-25 active:bg-background-invert;
   }
 
   .transition-base {
-    @apply transition ease-in-out duration-200;
+    @apply transition duration-200 ease-in-out;
   }
 
   .btn-base {
-    @apply inline-flex justify-center outline-none ring-offset-1 rounded-lg border px-5 py-3 text-sm font-bold transition-base focus:ring-2;
+    @apply transition-base inline-flex justify-center rounded-lg border px-5 py-3 text-sm font-bold outline-none ring-offset-1 focus:ring-2;
   }
 
   .btn-primary {
-    @apply btn-base border-background-invert-25 bg-paragraph text-main hover:bg-paragraph-25 ring-paragraph-25;
+    @apply btn-base border-background-invert-25 bg-paragraph text-main ring-paragraph-25 hover:bg-paragraph-25;
   }
 
   .btn-secondary {
-    @apply btn-base border-gray-300 bg-white text-button-text hover:bg-background ring-paragraph-25 transition-base;
+    @apply btn-base transition-base border-gray-300 bg-white text-button-text ring-paragraph-25 hover:bg-background;
   }
   .input-base {
-    @apply rounded-lg ring-offset-1 focus:ring-2 transition-base border-background-invert-25 ring-paragraph-25;
+    @apply transition-base rounded-lg border-background-invert-25 ring-paragraph-25 ring-offset-1 focus:ring-2;
   }
 }
 

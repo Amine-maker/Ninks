@@ -22,7 +22,7 @@ const AuthService = (): IAuthService => {
         },
         (err: string) => {
           throw new Error(`Erreur lors de la connexion {${err}}`);
-        }
+        },
       );
     },
     async register(payload: IRegisterPayload, callback: VoidFunction): /* Promise<IUser | null> */ Promise<any> {

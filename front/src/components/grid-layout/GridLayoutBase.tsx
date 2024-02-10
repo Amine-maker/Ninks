@@ -61,7 +61,7 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
         loading: "Loading",
         success: "Link has been added successfully",
         error: "Error while adding link",
-      }
+      },
     );
   };
 
