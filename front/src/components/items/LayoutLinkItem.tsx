@@ -1,11 +1,7 @@
-import React, { useState } from "react";
-import {
-  type LinkPatternName,
-  type GridLayoutItem,
-  type ILinkItem,
-} from "../../core/utils/interface.ui";
+import React from "react";
+import { type GridLayoutItem } from "../../core/utils/interface.ui";
 import PopoverBase from "../shared/PopoverBase";
-import { type LinkPattern, type IActionsBase } from "../../core/utils/actionLinkInterface";
+import { type IActionsBase } from "../../core/utils/actionLinkInterface";
 
 export interface ILayoutLinkProps {
   actions: IActionsBase;

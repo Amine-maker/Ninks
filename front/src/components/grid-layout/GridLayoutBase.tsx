@@ -1,7 +1,11 @@
 import React, { useRef, useState } from "react";
 import _ from "lodash";
 import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
-import { type LinkPatternName, type GridLayoutItem, ILinkItem } from "../../core/utils/interface.ui";
+import {
+  type LinkPatternName,
+  type GridLayoutItem,
+  ILinkItem,
+} from "../../core/utils/interface.ui";
 import ButtonAddLinkComponent from "../items/ButtonAddLink";
 import { toast } from "sonner";
 import { RxCornerBottomRight } from "react-icons/rx";
@@ -24,7 +28,12 @@ const defaultLinkConfig = {
   maxH: 4,
 };
 
-const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols = { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }, rowHeight = 100, onLayoutChange }) => {
+const GridLayoutBaseComponent: React.FC<Props> = ({
+  className = "layout",
+  cols = { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 },
+  rowHeight = 100,
+  onLayoutChange,
+}) => {
   const [gridLinkItems, setGridLinkItems] = useState<GridLayoutItem[]>([
     ...[0, 1, 2, 3, 4].map((i, key, list) => ({
       i,
@@ -65,6 +74,8 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
     );
   };
 
+  const onAddMedia = (): void => {};
+
   const onBreakpointChange = (breakpoint: string, cols: number): void => {
     setBreakpoint(breakpoint);
     setCurrentCols(cols);
@@ -104,9 +115,14 @@ const GridLayoutBaseComponent: React.FC<Props> = ({ className = "layout", cols =
     );
   };
 
+  // TODO: create button add media instead of using link button
   return (
     <div className="flex flex-col gap-9">
-      <ButtonAddLinkComponent onAddItem={onAddItem} />
+      <div className="container-add-type flex gap-3">
+        <ButtonAddLinkComponent onAddItem={onAddItem} />
+        <ButtonAddLinkComponent onAddItem={onAddMedia} />
+      </div>
+
       <ResponsiveReactGridLayout
         resizeHandles={["se"]}
         onLayoutChange={onLayoutChange}
