@@ -9,7 +9,7 @@ import AuthLayout from "../auth/AuthLayout";
 
 const Layout = (): JSX.Element => {
   const location = useLocation();
-  const [_, setCurrentLink] = useState<string>(location.pathname);
+  const [, setCurrentLink] = useState<string>(location.pathname);
 
   const isSelected = (link: string): boolean => {
     return location.pathname.includes(link);

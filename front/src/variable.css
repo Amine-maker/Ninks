@@ -4,60 +4,13 @@
 
 @layer base {
   :root {
-    /*
-       /$$$$$$$                               
-      | $$__  $$                              
-      | $$  \ $$  /$$$$$$   /$$$$$$$  /$$$$$$ 
-      | $$$$$$$  |____  $$ /$$_____/ /$$__  $$
-      | $$__  $$  /$$$$$$$|  $$$$$$ | $$$$$$$$
-      | $$  \ $$ /$$__  $$ \____  $$| $$_____/
-      | $$$$$$$/|  $$$$$$$ /$$$$$$$/|  $$$$$$$
-      |_______/  \_______/|_______/  \_______/
-
-*/
-
     background-color: var(--background);
 
     /* base */
 
-    --background: #f2f7f557;
-    --headline: #00473e;
-    --paragraph: #475d5b;
-    --button-primary: #faae2b; /*ajouter des variantes aux bouton et changer le jaune */
-    --button-text: #00473e;
-
-    /* teinte (plus clair) */
-
-    --background-invert: #475d5b3b;
-    --background-invert-25: #89b1ad3b;
-    --paragraph-25: #779c99;
-
-    /* nuance (plus sombre) */
-
-    --tertiary-n-25: #c53e34;
-    --tertiary-n-50: #70231e;
-
-    /* illustration */
-
-    --stroke: #00332c;
-    --main: #ffffffe1;
-    --highlight: #faae2b;
-    --secondary: #ffa8ba;
-    --tertiary: #fa5246;
-
-    /*
-        /$$$$$$$$ /$$
-       |__  $$__/| $$
-          | $$   | $$$$$$$   /$$$$$$  /$$$$$$/$$$$   /$$$$$$   /$$$$$$$
-          | $$   | $$__  $$ /$$__  $$| $$_  $$_  $$ /$$__  $$ /$$_____/
-          | $$   | $$  \ $$| $$$$$$$$| $$ \ $$ \ $$| $$$$$$$$|  $$$$$$
-          | $$   | $$  | $$| $$_____/| $$ | $$ | $$| $$_____/ \____  $$
-          | $$   | $$  | $$|  $$$$$$$| $$ | $$ | $$|  $$$$$$$ /$$$$$$$/
-          |__/   |__/  |__/ \_______/|__/ |__/ |__/ \_______/|_______/
-*/
     /* shadcn */
 
-    /* --background: 0 0% 100%; */
+    --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
 
     --card: 0 0% 100%;
@@ -67,6 +20,18 @@
     --popover-foreground: 0 0% 3.9%;
 
     --primary: 0 0% 9%;
+    --primary-25: 174, 100%, 96%;
+    --primary-50: 174, 45%, 91%;
+    --primary-100: 174, 37%, 85%;
+    --primary-200: 175, 42%, 78%;
+    --primary-300: 174, 37%, 71%;
+    --primary-400: 174, 28%, 54%;
+    --primary-500: 174, 23%, 46%;
+    --primary-600: 175, 19%, 40%;
+    --primary-700: 175, 13%, 32%;
+    --primary-800: 173, 17%, 29%;
+    --primary-900: 173, 21%, 24%;
+
     --primary-foreground: 0 0% 98%;
 
     --secondary: 0 0% 96.1%;
