@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import LinkService, { type LinkPayload } from "../core/service/LinkService";
-import UserService from "../core/service/UserService";
+import LinkService, { type LinkPayload } from "@service/LinkService";
+import UserService from "@service/UserService";
 import { useAuth } from "../hooks/AuthHook";
-import { type ILinkItem } from "../core/utils/interface.ui";
+import { type LinkItem } from "../core/utils/interface.ui";
 
 export const LinkContext = React.createContext<LinkContextType>(null!);
 function LinkProvider({ children }: { children: React.ReactNode }): JSX.Element {
   const { user } = useAuth();
-  const [links, setLinks] = useState<Array<ILinkItem<any>> | undefined>([]);
+  const [links, setLinks] = useState<Array<LinkItem<any>> | undefined>([]);
   if (user?.links[0] === null) user.links = [];
 
   const { getCurrentUser } = UserService();
@@ -44,7 +44,7 @@ function LinkProvider({ children }: { children: React.ReactNode }): JSX.Element 
 }
 
 export interface LinkContextType {
-  sites?: Array<ILinkItem<any>>;
+  sites?: Array<LinkItem<any>>;
   addLink: (payload: LinkPayload, callback: VoidFunction) => void;
   deleteLink: (siteId: string, callback?: VoidFunction) => void;
   getLinks: (siteId: string) => void;

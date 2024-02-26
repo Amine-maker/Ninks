@@ -4,20 +4,20 @@ import {
   type ApiUserDataToken,
   type ILoginPayload,
   type IRegisterPayload,
-  type IUser,
+  type UiUser,
 } from "../utils/interface.ui";
 import axiosInstance from "./ApiInterceptor";
 
 const AuthService = (): IAuthService => {
   return {
-    async signIn(payload: ILoginPayload, callback: VoidFunction): Promise<IUser | null> {
+    async signIn(payload: ILoginPayload, callback: VoidFunction): Promise<UiUser | null> {
       return await axiosInstance
         .post<ApiUserDataToken, { data: ApiUserDataToken }>(`${API_URL}/auth/login`, payload)
         .then(
           (res) => {
             const dataTokenUser = res.data;
             const token = dataTokenUser.accessToken;
-            const user: IUser = {
+            const user: UiUser = {
               email: dataTokenUser.email,
               id: dataTokenUser.id,
               username: dataTokenUser.username,
@@ -41,30 +41,6 @@ const AuthService = (): IAuthService => {
         password: payload.password,
         options: { emailRedirectTo: "https://localhost:5173/home" },
       });
-
-      // return await axiosInstance
-      //   .post<ApiUserDataToken, { data: ApiUserDataToken }>(`${API_URL}/auth/signup`, payload)
-      //   .then(
-      //     (res) => {
-      //       const registerUser = res.data;
-      //       const user: IUser = {
-      //         email: registerUser.email,
-      //         id: registerUser.id,
-      //         username: registerUser.username,
-      //         links: registerUser.sites,
-      //       };
-      //       void this.signIn({ username: payload.username, password: payload.password }, () => {
-      //         console.log("good signin");
-      //       });
-      //       return user;
-      //     },
-      //     (err: string) => {
-      //       throw new Error(`Erreur lors de la connexion { err : ${err}}`);
-      //     }
-      //   )
-      //   .catch(() => {
-      //     throw new Error("Erreur lors de la connexion");
-      //   });
     },
     async signOut(): Promise<void> {
       const { error } = await supabase.auth.signOut();
@@ -73,8 +49,8 @@ const AuthService = (): IAuthService => {
 };
 
 interface IAuthService {
-  signIn: (payload: ILoginPayload, callback: VoidFunction) => Promise<IUser | null>;
-  register: (payload: IRegisterPayload, callback: VoidFunction) => Promise<IUser | null>;
+  signIn: (payload: ILoginPayload, callback: VoidFunction) => Promise<UiUser | null>;
+  register: (payload: IRegisterPayload, callback: VoidFunction) => Promise<UiUser | null>;
   signOut: (callback: VoidFunction) => Promise<void>;
 }
 

@@ -8,7 +8,7 @@ function HeaderComponent(): JSX.Element {
       <Link
         to={"/home"}
         role="button"
-        className="flex h-full w-11 items-center justify-center rounded-lg border-2 border-tertiary-n-25 bg-tertiary"
+        className="border-tertiary-n-25 bg-tertiary flex h-full w-11 items-center justify-center rounded-lg border-2"
       >
         <BsFillGrid1X2Fill className="text-tertiary-n-25"></BsFillGrid1X2Fill>
       </Link>

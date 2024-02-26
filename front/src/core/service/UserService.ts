@@ -3,7 +3,7 @@ import axiosInstance from "./ApiInterceptor";
 import jwtDecode from "jwt-decode";
 import { type ApiUser } from "../utils/interface.ui";
 
-const UserService = (): IUserService => {
+const UserService = (): UiUserService => {
   return {
     async getCurrentUser(): Promise<ApiUser | null> {
       const token = localStorage.getItem("token");
@@ -29,8 +29,8 @@ const UserService = (): IUserService => {
   };
 };
 
-interface IUserService {
+type UiUserService = {
   getCurrentUser: () => Promise<ApiUser | null>;
-}
+};
 
 export default UserService;

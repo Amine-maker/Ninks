@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import AuthService from "../core/service/AuthService";
-import UserService from "../core/service/UserService";
-import { type ILoginPayload, type IRegisterPayload, type IUser } from "../core/utils/interface.ui";
+import AuthService from "@service/AuthService";
+import UserService from "@service/UserService";
+import { type ILoginPayload, type IRegisterPayload, type UiUser } from "../core/utils/interface.ui";
 
 export const AuthContext = React.createContext<AuthContextType>(null!);
 
 function AuthProvider({ children }: { children: React.ReactNode }): JSX.Element {
-  const [user, setUser] = useState<IUser | null>(null);
+  const [user, setUser] = useState<UiUser | null>(null);
   const [isAuth, setIsAuthenticated] = useState<boolean>(false);
   const [session] = useState<string | null>(localStorage.getItem("token"));
   const { getCurrentUser } = UserService();
@@ -34,7 +34,7 @@ function AuthProvider({ children }: { children: React.ReactNode }): JSX.Element 
     });
 
     setIsAuthenticated(true);
-    setCurrentUser(user as IUser);
+    setCurrentUser(user as UiUser);
   };
 
   const register = async (userPayload: IRegisterPayload, callback: VoidFunction): Promise<void> => {
@@ -43,7 +43,7 @@ function AuthProvider({ children }: { children: React.ReactNode }): JSX.Element 
       callback();
     });
     setIsAuthenticated(true);
-    setCurrentUser(u as IUser);
+    setCurrentUser(u as UiUser);
   };
 
   const signout = async (callback: VoidFunction): Promise<void> => {
@@ -54,7 +54,7 @@ function AuthProvider({ children }: { children: React.ReactNode }): JSX.Element 
     });
   };
 
-  const setCurrentUser = (user: IUser): void => {
+  const setCurrentUser = (user: UiUser): void => {
     setUser(user);
     setIsAuthenticated(true);
   };
@@ -65,11 +65,11 @@ function AuthProvider({ children }: { children: React.ReactNode }): JSX.Element 
 }
 
 export interface AuthContextType {
-  user: IUser | null;
+  user: UiUser | null;
   isAuth: boolean;
   signin: (payload: ILoginPayload, callback: VoidFunction) => void;
   register: (payload: IRegisterPayload, callback: VoidFunction) => void;
   signout: (callback: VoidFunction) => void;
-  setCurrentUser: (user: IUser) => void;
+  setCurrentUser: (user: UiUser) => void;
 }
 export default AuthProvider;

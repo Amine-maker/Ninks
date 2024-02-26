@@ -1,19 +1,19 @@
 import { type Role } from "./enum";
 import { type LinkPattern, type DispatchAction } from "./actionLinkInterface";
 
-export interface ILoginPayload {
+export type ILoginPayload = {
   username: string;
   password: string;
-}
+};
 
-export interface IUser {
+export type UiUser = {
   id: string;
   username: string;
   email: string;
   links: any[];
-}
+};
 
-export interface GridLayoutItem {
+export type GridLayoutItem = {
   i: number;
   x: number;
   y: number;
@@ -25,7 +25,7 @@ export interface GridLayoutItem {
   maxW: number;
   maxH: number;
   linkType?: LinkPatternName;
-}
+};
 
 export type LinkPatternName =
   | "Instagram"
@@ -47,7 +47,7 @@ export type BgColor = `bg-[#${string}]`;
 export type TextColor = `text-[#${string}]`;
 export type BorderColor = `border-[#${string}]`;
 
-export interface ApiUserDataToken {
+export type ApiUserDataToken = {
   accessToken: string;
   id: string;
   roles: string[];
@@ -55,7 +55,7 @@ export interface ApiUserDataToken {
   username: string;
   email: string;
   sites: any[];
-}
+};
 
 export interface GenericError {
   status: string;
@@ -65,7 +65,7 @@ export interface GenericError {
   error: ErrorMessage;
 }
 
-export interface ILinkItemChoice {
+export type LinkItemChoice = {
   icon: JSX.Element;
   bgColor: BgColor;
   borderColor: BorderColor;
@@ -74,9 +74,9 @@ export interface ILinkItemChoice {
   name: LinkPatternName;
   description: string;
   fw?: boolean;
-}
+};
 
-export interface ILinkItem<T extends LinkPattern> {
+export type LinkItem<T extends LinkPattern> = {
   id: string;
   userId: string;
   icon: JSX.Element;
@@ -88,7 +88,7 @@ export interface ILinkItem<T extends LinkPattern> {
   name: LinkPatternName;
   description: string;
   actions: DispatchAction<T>;
-}
+};
 
 // Access au donnée via le type LinkPatternName
 
@@ -103,29 +103,29 @@ export interface ErrorMessage {
   stack: string;
 }
 
-export type ApiUser = Omit<IUser, "roles"> & {
+export type ApiUser = Omit<UiUser, "roles"> & {
   authorities: Array<{ authority: string }>;
 };
 
-export interface UiRenderIf {
+export type UiRenderIf = {
   children: JSX.Element;
   isTrue: boolean;
-}
+};
 
-export interface IRegisterPayload {
+export type IRegisterPayload = {
   email: string;
   password: string;
   username: string;
   roles?: Role[];
-}
+};
 
-export interface ILinks {
+export type UiLinks = {
   to: string;
   hidden: boolean;
   displayName: string;
   selected: boolean;
   icon?: JSX.Element;
   customStyle?: React.CSSProperties;
-}
+};
 
 // Model

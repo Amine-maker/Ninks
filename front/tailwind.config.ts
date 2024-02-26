@@ -9,7 +9,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      display: ["Space Grotesk", "sans-serif"],
+      display: ["Plus Jakarta Sans", "sans-serif"],
       body: ["Inter", "sans-serif"],
     },
     container: {
@@ -27,8 +27,7 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "var(--background)",
-        // background: "hsl(var(--background))",
+        background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -48,6 +47,17 @@ module.exports = {
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+          25: "hsl(var(--secondary-25))",
+          50: "hsl(var(--secondary-50))",
+          100: "hsl(var(--secondary-100))",
+          200: "hsl(var(--secondary-200))",
+          300: "hsl(var(--secondary-300))",
+          400: "hsl(var(--secondary-400))",
+          500: "hsl(var(--secondary-500))",
+          600: "hsl(var(--secondary-600))",
+          700: "hsl(var(--secondary-700))",
+          800: "hsl(var(--secondary-800))",
+          900: "hsl(var(--secondary-900))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -72,6 +82,7 @@ module.exports = {
       },
       boxShadow: {
         min: "0px 0px 3px 0px #a1a1a136;",
+        theme: "0px 1px 2px 0px #1018280d",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -97,6 +108,8 @@ module.exports = {
   plugins: [
     require("tailwindcss-animate"),
     require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
+
     "prettier-plugin-tailwindcss",
   ],
 };

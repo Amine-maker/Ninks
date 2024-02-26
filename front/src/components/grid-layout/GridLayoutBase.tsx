@@ -2,11 +2,12 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import _ from "lodash";
 import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
 import { type LinkPatternName, type GridLayoutItem } from "../../core/utils/interface.ui";
-import ButtonAddLinkComponent from "../items/ButtonAddLink";
+import ButtonAddLinkComponent from "@components/items/ButtonAddLink";
 import { toast } from "sonner";
 import { RxCornerBottomRight } from "react-icons/rx";
 import LayoutLinkItemComponent from "../items/LayoutLinkItem";
 import { DateTime } from "luxon";
+import DropList from "../drop/DropList";
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 interface Props {
@@ -126,6 +127,7 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
         <ButtonAddLinkComponent onAddItem={onAddMedia} />
       </div>
 
+      <DropList />
       <ResponsiveReactGridLayout
         resizeHandles={["se"]}
         onLayoutChange={onLayoutChange}
