@@ -1,13 +1,13 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import _ from "lodash";
 import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
 import { type LinkPatternName, type GridLayoutItem } from "../../core/utils/interface.ui";
 import ButtonAddLinkComponent from "@components/items/ButtonAddLink";
 import { toast } from "sonner";
 import { RxCornerBottomRight } from "react-icons/rx";
-import LayoutLinkItemComponent from "../items/LayoutLinkItem";
-import { DateTime } from "luxon";
-import DropList from "../drop/DropList";
+import DropList from "@/components/drop/DropList";
+import LayoutLinkItemComponent from "@/components/items/LayoutLinkItem";
+import * as constante from "@/core/utils/constante";
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 interface Props {
@@ -16,15 +16,6 @@ interface Props {
   rowHeight?: number;
   onLayoutChange: (layout: Layout[]) => void;
 }
-
-const defaultLinkConfig = {
-  w: 2,
-  h: 1,
-  minH: 1,
-  minW: 2,
-  maxW: 8,
-  maxH: 4,
-};
 
 const GridLayoutBaseComponent: React.FC<Props> = ({
   className = "layout",
@@ -38,7 +29,7 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
       x: i * 2,
       y: 0,
       add: i === list.length - 1,
-      ...defaultLinkConfig,
+      ...constante.DEFAULT_LINKS_CONFIG,
     })),
   ]);
   const [newCounter, setNewCounter] = useState(gridLinkItems.length);
@@ -58,7 +49,7 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
               i: newCounter,
               x: (gridLinkItems.length * 2) % (currentCols !== 0 ? currentCols : 12), // trouver un moyen de conditionner par rapport au currentCols
               y: Infinity, // puts it at the bottom
-              ...defaultLinkConfig,
+              ...constante.DEFAULT_LINKS_CONFIG,
             },
           ]);
           setNewCounter(newCounter + 1);

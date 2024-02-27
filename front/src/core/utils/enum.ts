@@ -4,13 +4,13 @@ export enum Role {
 }
 
 export enum WIDTH {
-  sm = "2",
-  md = "4",
-  lg = "6",
+  sm = 1,
+  md = 2,
+  lg = 3,
 }
 
 export enum HEIGHT {
-  sm = "2",
-  md = "4",
-  lg = "6",
+  sm = 1,
+  md = 2,
+  lg = 3,
 }

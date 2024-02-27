@@ -34,7 +34,7 @@ const Layout = (): JSX.Element => {
     <main className="container flex flex-wrap gap-8">
       <Toaster duration={2000} closeButton richColors position="bottom-right" />
 
-      <aside className="h-screen min-w-40 max-w-72 p-3 pt-8">
+      <aside className="top-0 min-w-40 p-3 pt-8 md:sticky md:h-screen md:w-full md:max-w-72">
         <div className="flex h-full flex-col justify-between">
           <div className="flex-grow">
             <div className="flex flex-col gap-6">

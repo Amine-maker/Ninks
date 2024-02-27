@@ -9,8 +9,9 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      display: ["Plus Jakarta Sans", "sans-serif"],
+      display: [["Plus Jakarta Sans", "sans-serif"], { fontFeatureSettings: '"ss02"' }],
       body: ["Inter", "sans-serif"],
+      sans: ["Inter", "sans-serif"],
     },
     container: {
       center: true,
@@ -109,7 +110,6 @@ module.exports = {
     require("tailwindcss-animate"),
     require("@tailwindcss/forms"),
     require("@tailwindcss/typography"),
-
     "prettier-plugin-tailwindcss",
   ],
 };
