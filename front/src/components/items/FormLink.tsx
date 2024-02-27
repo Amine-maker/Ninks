@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { type ILinkItemChoice } from "../../core/utils/interface.ui";
+import { type LinkItemChoice } from "../../core/utils/interface.ui";
 import { LinkChoiceMap } from "../../core/utils/linkData";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -33,7 +33,7 @@ const FormLinkComponent = (): JSX.Element => {
 
   const [iterableLinkChoiceMap] = useState(Array.from(LinkChoiceMap.values()));
   // const { register, handleSubmit } = useForm();
-  const [choiceItem, setChoiceItem] = useState<ILinkItemChoice | undefined>(
+  const [choiceItem, setChoiceItem] = useState<LinkItemChoice | undefined>(
     LinkChoiceMap.get("Instagram"),
   );
   return (
@@ -51,7 +51,7 @@ const FormLinkComponent = (): JSX.Element => {
                     onClick={() => {
                       setChoiceItem(iterableLinkChoiceMap[i]);
                     }}
-                    className={`item-choice transition-base min-w-[170px] cursor-pointer border bg-opacity-20 ring-paragraph-25 ring-offset-2 active:ring-4 ${choice.borderColor} h-full ${choice.bgColor} flex flex-col justify-between rounded-2xl p-3`}
+                    className={`item-choice transition-base ring-paragraph-25 min-w-[170px] cursor-pointer border bg-opacity-20 ring-offset-2 active:ring-4 ${choice.borderColor} h-full ${choice.bgColor} flex flex-col justify-between rounded-2xl p-3`}
                   >
                     <div className="flex gap-3">
                       <div className="flex-0 flex h-14 w-14 items-center justify-center rounded-xl border bg-white p-1 shadow-min">

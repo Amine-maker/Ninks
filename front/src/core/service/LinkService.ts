@@ -1,6 +1,6 @@
 import { API_URL } from "../utils/constante";
 
-import { type ILinkItem } from "../utils/interface.ui";
+import { type LinkItem } from "../utils/interface.ui";
 
 import axiosInstance from "./ApiInterceptor";
 
@@ -40,7 +40,7 @@ const LinkService = (): ILinkService => {
 };
 
 interface ILinkService {
-  addLink: (payload: LinkPayload) => Promise<ILinkItem<any>>;
+  addLink: (payload: LinkPayload) => Promise<LinkItem<any>>;
   remove: (siteId: string) => Promise<void>;
   getAllLinks: (siteId: string) => Promise<any[]>;
 }
