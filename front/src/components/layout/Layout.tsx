@@ -6,6 +6,8 @@ import { Toaster } from "sonner";
 import AuthLayout from "../auth/AuthLayout";
 import { type UiLinks } from "@/core/utils/interface.ui";
 import { Button } from "@/components/ui/button";
+import IconSet from "@/components/shared/IconSet";
+import clsx from "clsx";
 
 const Layout = (): JSX.Element => {
   const location = useLocation();
@@ -21,6 +23,7 @@ const Layout = (): JSX.Element => {
       selected: isSelected("/home"),
       hidden: false,
       displayName: "My page",
+      icon: "LineBarChart",
     },
     {
       to: "/statistics",
@@ -46,23 +49,29 @@ const Layout = (): JSX.Element => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta porro facere eum
                 delectus nihil dignissimos co
               </p>
-              <Button variant={"secondary"} className="w-fit">
+              <Button icon={{ icon: "LineBarChart" }} variant="secondary" className="w-fit">
                 Select theme
               </Button>
               <div className="border-t"></div>
-              <ul className="space-y-2 border p-1">
+              <ul className="space-y-2 p-1">
                 {links.map((link, index) => {
                   return (
                     <li key={index}>
                       <Link
-                        style={link.selected ? link.customStyle : undefined}
+                        style={link.customStyle}
                         to={link.to}
                         onClick={() => {
                           setCurrentLink(link.to);
                         }}
-                        className={`link-button ${link.hidden ? "hidden" : ""}`}
+                        className={clsx(
+                          "link-button",
+                          link.hidden && "hidden",
+                          link.selected && "bg-primary-100",
+                        )}
                       >
-                        <RenderIf isTrue={Boolean(link.icon)}>{link.icon!}</RenderIf>
+                        <RenderIf isTrue={Boolean(link.icon)}>
+                          <IconSet className="fill-red-600" icon={link.icon!} />
+                        </RenderIf>
                         {link.displayName}
                       </Link>
                     </li>

@@ -60,8 +60,8 @@
 
   .link-button {
     @apply transition-base flex items-center gap-3 rounded-xl px-4 py-3
-      font-display font-bold text-primary-800
-      hover:bg-primary-25 active:bg-primary-400;
+      font-display font-bold text-gray-900
+      hover:bg-gray-100 active:bg-primary-100;
   }
 
   .transition-base {

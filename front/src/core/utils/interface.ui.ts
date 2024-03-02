@@ -1,5 +1,6 @@
 import { type Role } from "./enum";
 import { type LinkPattern, type DispatchAction } from "./actionLinkInterface";
+import { type IconName } from "@/assets/icon";
 
 export type ILoginPayload = {
   username: string;
@@ -124,7 +125,7 @@ export type UiLinks = {
   hidden: boolean;
   displayName: string;
   selected: boolean;
-  icon?: JSX.Element;
+  icon?: IconName;
   customStyle?: React.CSSProperties;
 };
 
