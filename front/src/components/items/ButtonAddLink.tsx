@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { BiLink } from "react-icons/bi";
 import DialogBase from "../shared/DialogBase";
 import FormLinkComponent from "./FormLink";
 import { type LinkPatternName } from "../../core/utils/interface.ui";
 
-interface Props {
+type Props = {
   children?: JSX.Element;
   onAddItem: (linkType: LinkPatternName) => void;
-}
+};
 
 const ButtonAddLinkComponent = (props: Props): JSX.Element => {
   const [openDialog, setOpenDialog] = useState(false);

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import _ from "lodash";
 import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
 import { type LinkPatternName, type GridLayoutItem } from "../../core/utils/interface.ui";
@@ -26,7 +26,7 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
   const [gridLinkItems, setGridLinkItems] = useState<GridLayoutItem[]>([
     ...[0, 1, 2, 3, 4].map((i, key, list) => ({
       i,
-      x: i * 2,
+      x: i,
       y: 0,
       add: i === list.length - 1,
       ...constante.DEFAULT_LINKS_CONFIG,
@@ -63,7 +63,7 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
     );
   };
 
-  useEffect(() => {
+  useCallback(() => {
     onAddMedia();
   }, []);
 
@@ -120,6 +120,10 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
 
       <DropList />
       <ResponsiveReactGridLayout
+        onDropDragOver={() => {
+          console.log("drag");
+          return false;
+        }}
         resizeHandles={["se"]}
         onLayoutChange={onLayoutChange}
         resizeHandle={

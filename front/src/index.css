@@ -68,17 +68,6 @@
     @apply transition duration-200 ease-in-out;
   }
 
-  .btn-base {
-    @apply transition-base inline-flex justify-center rounded-lg border px-5 py-3 text-sm font-bold outline-none;
-  }
-
-  .btn-primary {
-    @apply btn-base border-primary-100 bg-primary-600 text-white ring-primary-100 hover:bg-primary-100;
-  }
-
-  .btn-secondary {
-    @apply btn-base transition-base border-gray-300 bg-white text-primary-800  hover:bg-gray-300;
-  }
   .input-base {
     @apply transition-base rounded-lg border-white;
   }
@@ -93,8 +82,7 @@
   position: sticky;
   top: 0;
   z-index: 3;
-  left: 0;
-  height: 70px;
+  height: auto;
   background: rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(6.2px);
 }

@@ -74,7 +74,7 @@ const Layout = (): JSX.Element => {
           <AuthLayout />
         </div>
       </aside>
-      <section className="content flex-1 border border-gray-300 ">
+      <section className="content flex-1 border-l border-gray-300 ">
         <HeaderComponent />
         <div className="flex justify-center">
           <section className="flex-75 max-w-8xl p-5">
