@@ -5,10 +5,13 @@ export interface IconProps extends HtmlHTMLAttributes<HTMLDivElement> {
   icon: IconName;
   className?: string;
   size?: number;
+  color?: string;
 }
 
-const IconSet: React.FC<IconProps> = ({ icon, className, size, ...otherProps }) => {
+const IconSet: React.FC<IconProps> = ({ icon, className, size, color, ...otherProps }) => {
   const SvgIcon = useMemo(() => icons[icon], [icon]);
+
+  console.log(color);
 
   return (
     <div
@@ -26,7 +29,14 @@ const IconSet: React.FC<IconProps> = ({ icon, className, size, ...otherProps }) 
     >
       {" "}
       <Suspense fallback={null}>
-        <SvgIcon style={{ width: "100%", height: "100%" }} key={icon} />
+        <SvgIcon
+          style={{
+            width: "100%",
+            height: "100%",
+            stroke: color !== undefined ? color : "black",
+          }}
+          key={icon}
+        />
       </Suspense>
     </div>
   );

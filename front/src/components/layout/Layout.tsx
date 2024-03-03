@@ -71,7 +71,7 @@ const Layout = (): JSX.Element => {
                         )}
                       >
                         <RenderIf isTrue={Boolean(link.icon)}>
-                          <IconSet className="fill-red-600" icon={link.icon!} />
+                          <IconSet icon={link.icon!} color="#527875" />
                         </RenderIf>
                         {link.displayName}
                       </Link>

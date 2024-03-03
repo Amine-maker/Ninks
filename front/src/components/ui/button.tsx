@@ -6,17 +6,18 @@ import { cn } from "@/lib/utils";
 import IconSet, { type IconProps } from "@/components/shared/IconSet";
 
 const buttonVariants = cva(
-  "inline-flex gap-2 shadow-theme items-center justify-center rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex gap-2 shadow-theme items-center justify-center rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ",
   {
     variants: {
       variant: {
-        default: "bg-primary-500 text-primary-foreground hover:bg-primary/90",
+        default:
+          "bg-primary-600 text-primary-foreground hover:bg-primary-500 active:bg-primary-400",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary:
-          "bg-white border border-gray-300 text-secondary-foreground hover:bg-secondary/80",
+          "bg-white border border-gray-300 text-secondary-foreground hover:bg-secondary/80 active:bg-gray-100",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        link: "text-primary underline-offset-4 hover:underline shadow-none border-none",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -44,7 +45,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button";
     return (
       <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props}>
-        {icon != null && <IconSet className="w-5" icon={icon.icon} />}
+        {icon != null && <IconSet className="w-5" color={icon.color} icon={icon.icon} />}
         {children}
       </Comp>
     );
