@@ -23,12 +23,13 @@ const Layout = (): JSX.Element => {
       selected: isSelected("/home"),
       hidden: false,
       displayName: "My page",
-      icon: "LineBarChart",
+      icon: "HomeLine",
     },
     {
       to: "/statistics",
       hidden: false,
       displayName: "Statistics",
+      icon: "Barlinechart",
       selected: isSelected("/statistics"),
     },
   ];
@@ -49,7 +50,7 @@ const Layout = (): JSX.Element => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta porro facere eum
                 delectus nihil dignissimos co
               </p>
-              <Button icon={{ icon: "LineBarChart" }} variant="secondary" className="w-fit">
+              <Button icon={{ icon: "PaletteIcon" }} variant="secondary" className="w-fit">
                 Select theme
               </Button>
               <div className="border-t"></div>
@@ -66,7 +67,7 @@ const Layout = (): JSX.Element => {
                         className={clsx(
                           "link-button",
                           link.hidden && "hidden",
-                          link.selected && "bg-primary-100",
+                          link.selected && "bg-primary-50",
                         )}
                       >
                         <RenderIf isTrue={Boolean(link.icon)}>

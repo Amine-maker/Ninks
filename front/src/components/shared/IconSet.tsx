@@ -1,5 +1,5 @@
 import { icons, type IconName } from "@/assets/icon";
-import React, { createElement, Suspense, type HtmlHTMLAttributes, useMemo } from "react";
+import React, { Suspense, type HtmlHTMLAttributes, useMemo } from "react";
 
 export interface IconProps extends HtmlHTMLAttributes<HTMLDivElement> {
   icon: IconName;
@@ -19,6 +19,7 @@ const IconSet: React.FC<IconProps> = ({ icon, className, size, ...otherProps }) 
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        fill: "red",
         fontSize: size ?? "24",
       }}
       {...otherProps}
