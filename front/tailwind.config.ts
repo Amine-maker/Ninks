@@ -83,7 +83,7 @@ module.exports = {
       },
       boxShadow: {
         min: "0px 0px 3px 0px #a1a1a136;",
-        theme: "0px 1px 2px 0px #1018280d",
+        theme: "0px 1px 2px 0px #1018280f",
       },
       borderRadius: {
         lg: "var(--radius)",

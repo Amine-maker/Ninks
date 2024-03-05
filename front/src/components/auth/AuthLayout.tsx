@@ -1,18 +1,30 @@
 import React from "react";
 import { envLocal } from "../../core/utils/constante";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const AuthLayout = (): JSX.Element => {
-  const isLogin = false;
+  const isLogin = true;
   console.log(envLocal);
 
   if (isLogin) {
     return (
       <div className="flex gap-3">
-        <Button icon={{ icon: "Settings03" }} variant="link">
-          Settings
-        </Button>
-        <Button icon={{ icon: "LogOut01" }} variant="link">
+        <Link to="/settings">
+          <Button
+            className="text-gray-500"
+            icon={{ icon: "Settings03", color: "#527875" }}
+            variant="link"
+          >
+            Settings
+          </Button>
+        </Link>
+
+        <Button
+          className="text-gray-500"
+          icon={{ icon: "LogOut01", color: "#527875" }}
+          variant="link"
+        >
           Logout
         </Button>
       </div>

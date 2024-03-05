@@ -1,15 +1,15 @@
 import React from "react";
 import { type LinkItemChoice, type LinkPatternName } from "./interface.ui";
 import { BsInstagram } from "react-icons/bs";
-import { ReactComponent as InstaSVG } from "@assets/icons/instagram-color-icon.svg";
-import { ReactComponent as TwitterSVG } from "@assets/icons/twitter-square-color-icon.svg";
-import { ReactComponent as DribbbleSVG } from "@assets/icons/dribbble-square-color-icon.svg";
-import { ReactComponent as GithubSVG } from "@assets/icons/github_square_icon.svg";
-import { ReactComponent as StripeSVG } from "@assets/icons/stripe-icon.svg";
-import { ReactComponent as PaypalSVG } from "@assets/icons/paypal-icon.svg";
-import { ReactComponent as TiktokSVG } from "@assets/icons/tiktok-square-color-icon.svg";
-import { ReactComponent as YoutubeSVG } from "@assets/icons/youtube-square-color-icon.svg";
-import { ReactComponent as SpotifySVG } from "@assets/icons/spotify-square-color-icon.svg";
+import { ReactComponent as InstaSVG } from "@assets/icons/instagram-color.svg";
+import { ReactComponent as TwitterSVG } from "@assets/icons/twitter-square-color.svg";
+import { ReactComponent as DribbbleSVG } from "@assets/icons/dribbble-square-color.svg";
+import { ReactComponent as GithubSVG } from "@assets/icons/github-square.svg";
+import { ReactComponent as StripeSVG } from "@assets/icons/stripe.svg";
+import { ReactComponent as PaypalSVG } from "@assets/icons/paypal.svg";
+import { ReactComponent as TiktokSVG } from "@assets/icons/tiktok-square-color.svg";
+import { ReactComponent as YoutubeSVG } from "@assets/icons/youtube-square-color.svg";
+import { ReactComponent as SpotifySVG } from "@assets/icons/spotify-square-color.svg";
 
 export const LinkChoiceMap = new Map<LinkPatternName, LinkItemChoice>();
 

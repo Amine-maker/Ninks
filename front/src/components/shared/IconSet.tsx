@@ -31,8 +31,8 @@ const IconSet: React.FC<IconProps> = ({ icon, className, size, color, ...otherPr
       <Suspense fallback={null}>
         <SvgIcon
           style={{
-            width: "100%",
-            height: "100%",
+            width: size ?? "100%",
+            height: size ?? "100%",
             stroke: color !== undefined ? color : "black",
           }}
           key={icon}

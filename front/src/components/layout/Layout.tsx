@@ -8,6 +8,7 @@ import { type UiLinks } from "@/core/utils/interface.ui";
 import { Button } from "@/components/ui/button";
 import IconSet from "@/components/shared/IconSet";
 import clsx from "clsx";
+import Footer from "@/components/layout/Footer";
 
 const Layout = (): JSX.Element => {
   const location = useLocation();
@@ -67,7 +68,7 @@ const Layout = (): JSX.Element => {
                         className={clsx(
                           "link-button",
                           link.hidden && "hidden",
-                          link.selected && "bg-primary-50",
+                          link.selected && "bg-gray-100",
                         )}
                       >
                         <RenderIf isTrue={Boolean(link.icon)}>
@@ -84,13 +85,14 @@ const Layout = (): JSX.Element => {
           <AuthLayout />
         </div>
       </aside>
-      <section className="content flex-1 border-l border-gray-300 ">
+      <section className="content relative flex-1 flex-col border-l border-gray-300 ">
         <HeaderComponent />
         <div className="flex justify-center">
           <section className="flex-75 max-w-8xl p-5">
             <Outlet />
           </section>
         </div>
+        <Footer />
       </section>
     </main>
   );

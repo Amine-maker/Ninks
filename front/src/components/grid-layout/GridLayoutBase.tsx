@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import _ from "lodash";
 import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
 import { type LinkPatternName, type GridLayoutItem } from "../../core/utils/interface.ui";
-import ButtonAddLinkComponent from "@components/items/ButtonAddLink";
+import ButtonAddItemComponent from "@/components/items/ButtonAddItem";
 import { toast } from "sonner";
 import { RxCornerBottomRight } from "react-icons/rx";
 import DropList from "@/components/drop/DropList";
@@ -113,9 +113,19 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
   // TODO: create button add media instead of using link button
   return (
     <div className="flex flex-col gap-9">
-      <div className="container-add-type flex gap-3">
-        <ButtonAddLinkComponent onAddItem={onAddItem} />
-        <ButtonAddLinkComponent onAddItem={onAddMedia} />
+      <div className="container-add-type flex flex-wrap gap-3">
+        <ButtonAddItemComponent
+          title="Add a link to your wall"
+          description="You can add a link to connect with your friends and community."
+          icon="NinkLogoDarkgreen"
+          onAddItem={onAddItem}
+        />
+        <ButtonAddItemComponent
+          title="Add media to your wall"
+          description="You can add a media to express and share with your friends and community"
+          icon="Image01"
+          onAddItem={onAddMedia}
+        />
       </div>
 
       <DropList />

@@ -55,7 +55,7 @@
 
 @layer components {
   .add-link-button {
-    @apply transition-base flex cursor-pointer gap-5 rounded-2xl border border-primary-100 bg-primary-600 p-5 hover:bg-gray-100;
+    @apply transition-base flex cursor-pointer gap-5 rounded-2xl border border-gray-200 bg-white p-4 pl-8 shadow-theme hover:bg-gray-100;
   }
 
   .link-button {
