@@ -1,5 +1,5 @@
 import { type Role } from "./enum";
-import { type LinkPattern, type DispatchAction } from "./actionLinkInterface";
+import { LinkPattern, type DispatchAction, type IAction } from "./actionLinkInterface";
 import { type IconName } from "@/assets/icon";
 
 export type ILoginPayload = {
@@ -93,9 +93,11 @@ export type LinkItem<T extends LinkPattern> = {
 
 // Access au donnée via le type LinkPatternName
 
-// const enumLinkValue = LinkPattern[LinkPattern.Behance];
+const r: LinkPatternName = "Behance";
 
-// const t: ILinkItem<typeof enumLinkValue> = {
+const enumLinkValue = LinkPattern[r];
+
+// const t: LinkItem<typeof enumLinkValue> = {
 //   actions: {},
 // };
 
@@ -129,4 +131,8 @@ export type UiLinks = {
   customStyle?: React.CSSProperties;
 };
 
-// Model
+export type DropLayoutItem = {
+  icon: IconName;
+  name: LinkPatternName;
+  actions?: IAction[];
+};

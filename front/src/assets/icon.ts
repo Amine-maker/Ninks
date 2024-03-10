@@ -10,6 +10,7 @@ function lazy(
 }
 
 export const icons = {
+  DragIndicator: lazy(async () => await import("@assets/icons/dragIndicator.svg")),
   HeartCircle: lazy(async () => await import("@assets/icons/heart-circle.svg")),
   LogOut01: lazy(async () => await import("@assets/icons/log-out-01.svg")),
   CheckSquare: lazy(async () => await import("@assets/icons/check-square.svg")),

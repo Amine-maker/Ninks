@@ -22,7 +22,7 @@ const IconSet: React.FC<IconProps> = ({ icon, className, size, color, ...otherPr
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        fill: "red",
+        fill: color !== undefined ? color : "black",
         fontSize: size ?? "24",
       }}
       {...otherProps}

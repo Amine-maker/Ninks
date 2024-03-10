@@ -10,13 +10,9 @@ const UserService = (): UiUserService => {
       if (token === null) {
         return null;
       }
-
       try {
         const decodedToken: any = jwtDecode(token);
-
         const username: string = decodedToken.sub;
-        console.log(username);
-
         return await axiosInstance
           .get<ApiUser>(`${API_URL}/user/info/${username}`)
           .then((response) => {

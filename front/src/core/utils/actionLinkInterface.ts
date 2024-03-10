@@ -1,67 +1,78 @@
-export interface IAction<T> {
-  popoverIcon?: JSX.Element;
+import { type IconName } from "@/assets/icon";
+import type BaseExternalApiService from "@/core/service/external-api/BaseService";
+import type InstagramService from "@/core/service/external-api/InstagramService";
+import { type TwitterService } from "@/core/service/external-api/InstagramService";
+
+export interface IAction<T = void> {
+  actionName: string;
+  label: string;
+  icon: IconName;
   callback: ActionCallback<T>;
 }
 
-export interface IActionsBase {
+export type IActionsBase = {
   remove: ActionCallback<number>;
   update?: ActionCallback<number>;
-}
+};
+
+export type ActionCallback<T> = (payload: T) => void;
 
 // Création d'une interface pour chaque action personnalisée
-interface TwitterActions extends IActionsBase {
+type TwitterActions = {
+  name: "Twitter";
   tweet: IAction<string>;
-}
+};
 
-interface InstagramActions extends IActionsBase {
+export type InstagramActions = {
   send: IAction<string>;
-}
+};
 
-interface YoutubeActions extends IActionsBase {
-  watch: IAction<string>;
-}
+type YoutubeActions = {
+  embed: IAction<string>;
+};
 
-interface StripeActions extends IActionsBase {
+type StripeActions = {
   checkout: IAction<number>;
-}
+};
 
-interface GithubActions extends IActionsBase {
+type GithubActions = {
   fork: IAction<string>;
-}
+};
 
-interface PaypalActions extends IActionsBase {
+type PaypalActions = {
   pay: IAction<number>;
-}
+};
 
-interface TiktokActions extends IActionsBase {
+type TiktokActions = {
   view: IAction<string>;
-}
+};
 
-interface DribbbleActions extends IActionsBase {
+type DribbbleActions = {
   like: IAction<number>;
-}
+};
 
-interface RedditActions extends IActionsBase {
+type RedditActions = {
   upvote: IAction<string>;
-}
+};
 
-interface FacebookActions extends IActionsBase {
+type FacebookActions = {
   share: IAction<number>;
-}
+};
 
-interface LinkedInActions extends IActionsBase {
+type LinkedInActions = {
   connect: IAction<string>;
-}
+};
 
-interface BehanceActions extends IActionsBase {
+type BehanceActions = {
   appreciate: IAction<number>;
-}
+};
 
-interface SpotifyActions extends IActionsBase {
+type SpotifyActions = {
   play: IAction<string>;
-}
+};
 
 interface CustomActions extends IActionsBase {
+  name: "Custom";
   customAction: IAction<any>;
 }
 
@@ -82,7 +93,7 @@ export enum LinkPattern {
   Custom = "Custom",
 }
 
-interface LinkPatternActions {
+export type LinkPatternActions = {
   [LinkPattern.Instagram]: InstagramActions;
   [LinkPattern.Twitter]: TwitterActions;
   [LinkPattern.Youtube]: YoutubeActions;
@@ -97,8 +108,8 @@ interface LinkPatternActions {
   [LinkPattern.Behance]: BehanceActions;
   [LinkPattern.Spotify]: SpotifyActions;
   [LinkPattern.Custom]: CustomActions;
-}
-
-export type ActionCallback<T> = (payload: T) => void;
+};
 
 export type DispatchAction<T extends LinkPattern> = LinkPatternActions[T];
+
+export type TypedServiceMap = typeof InstagramService | typeof TwitterService;

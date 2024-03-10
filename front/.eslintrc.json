@@ -26,6 +26,13 @@
 
   "rules": {
     "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "prefer": "type-imports",
+        "fixStyle": "inline-type-imports"
+      }
+    ],
     "linebreak-style": ["error", "windows"],
     "prettier/prettier": "error",
     "quotes": ["error", "double"]
