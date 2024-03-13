@@ -23,7 +23,7 @@ const DropItem: React.FC<DropItemProps> = ({ name, icon }) => {
       <div className="flex flex-1 basis-[25%] items-center justify-center bg-gray-200">
         <IconSet icon="DragIndicator" />
       </div>
-      <div className="flex-1  basis-[75%] bg-white p-3">
+      <div className="flex-1 basis-[75%] bg-white p-3">
         <IconSet className="h-full" icon={icon} />
       </div>
     </div>
