@@ -10,9 +10,6 @@ export interface IconProps extends HtmlHTMLAttributes<HTMLDivElement> {
 
 const IconSet: React.FC<IconProps> = ({ icon, className, size, color, ...otherProps }) => {
   const SvgIcon = useMemo(() => icons[icon], [icon]);
-
-  console.log(color);
-
   return (
     <div
       className={className}

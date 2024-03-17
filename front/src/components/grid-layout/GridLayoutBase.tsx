@@ -1,5 +1,4 @@
 import React, { useCallback, useRef, useState } from "react";
-import _ from "lodash";
 import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
 import { type LinkPatternName, type GridLayoutItem } from "../../core/utils/interface.ui";
 import ButtonAddItemComponent from "@/components/items/ButtonAddItem";
@@ -110,9 +109,13 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
     );
   };
 
+  const handleDropItem = (layout: Layout[], item: Layout, e: Event): void => {
+    console.log(layout, item);
+  };
+
   // TODO: create button add media instead of using link button
   return (
-    <div className="flex flex-col gap-9">
+    <section className="flex flex-col gap-9">
       <div className="container-add-type flex flex-wrap gap-3">
         <ButtonAddItemComponent
           title="Add a link to your wall"
@@ -130,12 +133,11 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
 
       <DropList />
       <ResponsiveReactGridLayout
-        onDropDragOver={() => {
-          console.log("drag");
-          return false;
-        }}
+        useCSSTransforms={true}
         resizeHandles={["se"]}
         onLayoutChange={onLayoutChange}
+        isDroppable={true}
+        onDrop={handleDropItem}
         resizeHandle={
           <div className="react-resizable-handle" ref={resizeRef}>
             <RxCornerBottomRight />
@@ -146,11 +148,9 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
         cols={cols}
         className={className}
       >
-        {_.map(gridLinkItems, (el) => {
-          return createElement(el);
-        })}
+        {gridLinkItems.map((item) => createElement(item))}
       </ResponsiveReactGridLayout>
-    </div>
+    </section>
   );
 };
 export default GridLayoutBaseComponent;

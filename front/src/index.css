@@ -59,7 +59,7 @@
   }
 
   .link-button {
-    @apply transition-base flex items-center gap-3 rounded-xl px-4 py-3
+    @apply transition-base flex items-center gap-3 rounded-lg px-4 py-3
       font-display font-bold text-gray-900
       hover:bg-gray-100 active:bg-gray-50;
   }
@@ -73,7 +73,7 @@
   }
 
   .dropItem {
-    @apply flex h-14 w-20 cursor-grab overflow-hidden rounded-xl border border-gray-300 shadow-theme focus:cursor-grabbing active:cursor-grabbing;
+    @apply flex h-14 w-20 cursor-grab overflow-hidden rounded-xl border border-gray-200 shadow-theme focus:cursor-grabbing active:cursor-grabbing;
   }
 }
 

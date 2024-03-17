@@ -55,7 +55,7 @@ const Layout = (): JSX.Element => {
                 Select theme
               </Button>
               <div className="border-t"></div>
-              <ul className="space-y-2 p-1">
+              <ul className="space-y-1 p-1">
                 {links.map((link, index) => {
                   return (
                     <li key={index}>
