@@ -264,6 +264,7 @@ export const icons = {
   Toggle02Left: lazy(async () => await import("@assets/icons/toggle-02-left.svg")),
   Placeholder: lazy(async () => await import("@assets/icons/placeholder.svg")),
   Home03: lazy(async () => await import("@assets/icons/home-03.svg")),
+  ArrowSquareUpRight: lazy(async () => await import("@assets/icons/arrow-square-up-right.svg")),
 };
 
 export type IconName = keyof typeof icons;
