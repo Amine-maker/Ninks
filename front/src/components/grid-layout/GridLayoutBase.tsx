@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from "react";
-import { Responsive, WidthProvider, type Layout } from "react-grid-layout";
+import { Responsive, WidthProvider, type Layout, type ItemCallback } from "react-grid-layout";
 import { type LinkPatternName, type GridLayoutItem } from "../../core/utils/interface.ui";
 import ButtonAddItemComponent from "@/components/items/ButtonAddItem";
 import { toast } from "sonner";
@@ -7,6 +7,7 @@ import { RxCornerBottomRight } from "react-icons/rx";
 import DropList from "@/components/drop/DropList";
 import LayoutLinkItemComponent from "@/components/items/LayoutLinkItem";
 import * as constante from "@/core/utils/constante";
+import clsx from "clsx";
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 interface Props {
@@ -18,11 +19,12 @@ interface Props {
 
 const GridLayoutBaseComponent: React.FC<Props> = ({
   className = "layout",
-  cols = { lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 },
+  cols = { lg: 8, md: 10, sm: 6, xs: 2, xxs: 2 },
   rowHeight = 100,
   onLayoutChange,
 }) => {
   const [gridLinkItems, setGridLinkItems] = useState<GridLayoutItem[]>([
+    // items to show, get from database
     ...[0, 1, 2, 3, 4].map((i, key, list) => ({
       i,
       x: i,
@@ -109,6 +111,10 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
     );
   };
 
+  const handleResize: ItemCallback = (layout, old, newItem) => {
+    // console.log(old, newItem);
+  };
+
   const handleDropItem = (layout: Layout[], item: Layout, e: Event): void => {
     console.log(layout, item);
   };
@@ -134,10 +140,12 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
       <DropList />
       <ResponsiveReactGridLayout
         useCSSTransforms={true}
+        margin={[20, 20]}
         resizeHandles={["se"]}
         onLayoutChange={onLayoutChange}
         isDroppable={true}
         onDrop={handleDropItem}
+        onResizeStop={handleResize}
         resizeHandle={
           <div className="react-resizable-handle" ref={resizeRef}>
             <RxCornerBottomRight />
@@ -146,7 +154,7 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
         onBreakpointChange={onBreakpointChange}
         rowHeight={rowHeight}
         cols={cols}
-        className={className}
+        className={clsx(className, "mb-36")}
       >
         {gridLinkItems.map((item) => createElement(item))}
       </ResponsiveReactGridLayout>
