@@ -20,11 +20,12 @@
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": "tsconfig.json"
+    "project": ["./tsconfig.json", "./tsconfig.node.json", "./tailwind.config.ts"]
   },
   "plugins": ["react", "prettier", "@typescript-eslint"],
 
   "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/consistent-type-imports": [
       "error",
@@ -37,5 +38,5 @@
     "prettier/prettier": "error",
     "quotes": ["error", "double"]
   },
-  "ignorePatterns": ["*.config.cjs"]
+  "ignorePatterns": ["*.config.cjs", ".eslintrc.json", "vite.config.ts"]
 }

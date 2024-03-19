@@ -1,6 +1,6 @@
 import React from "react";
-import { type GridLayoutItem } from "../../core/utils/interface.ui";
-import { type IActionsBase } from "../../core/utils/actionLinkInterface";
+import { type GridLayoutItem } from "../../../core/utils/interface.ui";
+import { type IActionsBase } from "../../../core/utils/actionLinkInterface";
 import IconSet from "@/components/shared/IconSet";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";

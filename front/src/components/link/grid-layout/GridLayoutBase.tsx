@@ -1,11 +1,11 @@
 import React, { useCallback, useRef, useState } from "react";
 import { Responsive, WidthProvider, type Layout, type ItemCallback } from "react-grid-layout";
-import { type LinkPatternName, type GridLayoutItem } from "../../core/utils/interface.ui";
-import ButtonAddItemComponent from "@/components/items/ButtonAddItem";
+import { type LinkPatternName, type GridLayoutItem } from "../../../core/utils/interface.ui";
+import ButtonAddItemComponent from "@/components/link/items/ButtonAddItem";
 import { toast } from "sonner";
 import { RxCornerBottomRight } from "react-icons/rx";
-import DropList from "@/components/drop/DropList";
-import LayoutLinkItemComponent from "@/components/items/LayoutLinkItem";
+import DropList from "@/components/link/drop/DropList";
+import LayoutLinkItemComponent from "@/components/link/items/LayoutLinkItem";
 import * as constante from "@/core/utils/constante";
 import clsx from "clsx";
 

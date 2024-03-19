@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { type LinkItemChoice } from "../../core/utils/interface.ui";
-import { LinkChoiceMap } from "../../core/utils/linkData";
+import { type LinkItemChoice } from "../../../core/utils/interface.ui";
+import { LinkChoiceMap } from "../../../core/utils/linkData";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 

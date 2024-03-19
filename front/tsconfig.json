@@ -24,6 +24,7 @@
       "@service/*": ["./src/core/service/*"]
     }
   },
-  "include": ["src", "@/components/ui", "src/config/tailwind.config.ts", "vite.config.ts"],
+
+  "include": ["src", "@/components/ui", "tailwind.config.ts", "vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

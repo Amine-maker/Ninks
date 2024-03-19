@@ -1,4 +1,4 @@
-import DropItem from "@/components/drop/DropItem";
+import DropItem from "@/components/link/drop/DropItem";
 import { type DropLayoutItem } from "@/core/utils/interface.ui";
 import React, { type PropsWithChildren } from "react";
 

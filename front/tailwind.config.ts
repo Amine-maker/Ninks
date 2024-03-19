@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -9,7 +10,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      display: [["Plus Jakarta Sans", "sans-serif"], { fontFeatureSettings: '"ss02"' }],
+      display: [["Plus Jakarta Sans", "sans-serif"], { fontFeatureSettings: "ss02" }],
       body: ["Inter", "sans-serif"],
       sans: ["Inter", "sans-serif"],
     },
