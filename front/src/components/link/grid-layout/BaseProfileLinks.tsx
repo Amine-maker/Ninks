@@ -1,4 +1,6 @@
 import GridLayoutBaseComponent from "@/components/link/grid-layout/GridLayoutBase";
+import ButtonAddItemComponent from "@/components/link/items/ButtonAddItem";
+import FormLinkComponent from "@/components/link/items/FormLink";
 import DialogBase from "@/components/shared/DialogBase";
 import React, { useState } from "react";
 
@@ -12,7 +14,9 @@ const BaseProfileLinks: React.FC = (props) => {
   return (
     <>
       <GridLayoutBaseComponent onLayoutChange={onLayoutChange} />
-      <DialogBase />
+      <DialogBase>
+        <div>tetestets</div>
+      </DialogBase>
     </>
   );
 };

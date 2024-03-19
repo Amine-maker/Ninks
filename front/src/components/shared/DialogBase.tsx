@@ -1,28 +1,20 @@
-import React, { type PropsWithChildren } from "react";
+import React, { type ReactNode, type PropsWithChildren } from "react";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
-import { useAtom, useAtomValue, useSetAtom } from "jotai";
-import { dialogOpen } from "@/components/shared/store/DialogStore";
+import { useAtom } from "jotai";
 import { dialogAtom } from "@/hooks/DialogHook";
 
-type Props = PropsWithChildren & {
+export type DialogProps = PropsWithChildren & {
   closeCallback?: () => Promise<void>;
-  component?: React.FC;
+  component?: ReactNode;
 };
 
-export interface ActionDialog {
-  label: string;
-  className: string;
-  callback?: () => void;
-}
-
-const DialogBase: React.FC<Props> = (props) => {
+const DialogBase: React.FC<DialogProps> = ({ component, closeCallback, children }) => {
   const [open, setOpen] = useAtom(dialogAtom);
 
   return (
@@ -30,11 +22,9 @@ const DialogBase: React.FC<Props> = (props) => {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Are you absolutely sure?</DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your account and remove your
-            data from our servers.
-          </DialogDescription>
+          <DialogDescription></DialogDescription>
         </DialogHeader>
+        {children}
       </DialogContent>
     </Dialog>
   );
