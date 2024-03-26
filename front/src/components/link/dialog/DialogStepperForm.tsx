@@ -28,8 +28,8 @@ const DialogStepperForm: React.FC<Props> = () => {
                 <IconSet icon="NinkLogoDarkgreen" size={25} color="#527875" />
               </div>
               <span className="">
-                <Badge className="flex gap-2 bg-gray-200 text-gray-500">
-                  <span>{step} / 2</span> <IconSet className="" icon="ArrowSquareUpRight" />
+                <Badge className="flex gap-1.5 bg-gray-200 text-gray-500">
+                  <span>{step} / 2</span> <IconSet className="" icon="ArrowNarrowRight" size={15} />
                 </Badge>
               </span>
             </div>
