@@ -1,9 +1,21 @@
-import React from "react";
-import DialogBase from "@/components/shared/DialogBase";
+import { type IconName } from "@/assets/icon";
 import { atom } from "jotai";
 
-export const dialogAtom = atom(false);
-
-export const useDialog = () => {
-  return <DialogBase />;
+export type DialogAtomeValue = {
+  open: boolean;
+  onOpenDialog: VoidFunction;
+  onCloseDialog: VoidFunction;
+  component: React.ReactNode;
+  actions?: DialogAction[];
+  width: string | number;
 };
+
+export type DialogAction = {
+  label: string;
+  icon: IconName;
+  callback: VoidFunction;
+};
+
+export const dialogBaseAtom = atom(false);
+export const stepperDialogAtom = atom(false);
+export const dialogMediaAtom = atom(false);

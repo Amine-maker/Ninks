@@ -8,6 +8,9 @@ import DropList from "@/components/link/drop/DropList";
 import LayoutLinkItemComponent from "@/components/link/items/LayoutLinkItem";
 import * as constante from "@/core/utils/constante";
 import clsx from "clsx";
+import DialogStepperForm from "@/components/link/dialog/DialogStepperForm";
+import { useSetAtom } from "jotai";
+import { dialogMediaAtom, stepperDialogAtom } from "@/hooks/DialogHook";
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 interface Props {
@@ -37,6 +40,8 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
   const [, setBreakpoint] = useState<string>();
   const [currentCols, setCurrentCols] = useState<number>(cols.md);
   const resizeRef = useRef(null);
+  const setOpenStepperDialog = useSetAtom(stepperDialogAtom);
+  const setOpenMediaDialog = useSetAtom(dialogMediaAtom);
 
   const onAddItem = (linkType: LinkPatternName): void => {
     console.log("adding", newCounter);
@@ -111,7 +116,7 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
     );
   };
 
-  const handleResize: ItemCallback = (layout, old, newItem) => {
+  const handleResize: ItemCallback = () => {
     // console.log(old, newItem);
   };
 
@@ -119,22 +124,24 @@ const GridLayoutBaseComponent: React.FC<Props> = ({
     console.log(layout, item);
   };
 
-  // TODO: create button add media instead of using link button
   return (
     <section className="flex flex-col gap-9">
       <div className="container-add-type flex flex-wrap gap-3">
+        {" "}
+        <DialogStepperForm />
         <ButtonAddItemComponent
+          onClick={() => {
+            setOpenStepperDialog(true);
+          }}
           title="Add a link to your wall"
           description="You can add a link to connect with your friends and community."
           icon="NinkLogoDarkgreen"
-          onAddItem={onAddItem}
         />
         <ButtonAddItemComponent
           title="Add media to your wall"
           description="You can add a media to express and share with your friends and community"
           icon="Image01"
-          onAddItem={onAddMedia}
-        />
+        ></ButtonAddItemComponent>
       </div>
 
       <DropList />

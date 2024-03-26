@@ -73,7 +73,7 @@
   }
 
   .dropItem {
-    @apply flex h-14 w-20 cursor-grab overflow-hidden rounded-xl border border-gray-100 shadow-theme focus:cursor-grabbing active:cursor-grabbing;
+    @apply flex h-14 w-20 cursor-grab overflow-hidden rounded-xl border border-gray-300 shadow-theme focus:cursor-grabbing active:cursor-grabbing;
   }
 }
 

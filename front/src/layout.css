@@ -1,6 +1,8 @@
 .react-grid-layout {
   position: relative;
   transition: height 200ms ease;
+  user-select: none;
+  margin: -10px;
 }
 .react-grid-item {
   transition: all 200ms ease;
@@ -49,7 +51,6 @@
 
 .react-grid-layout {
   background: transparent;
-  border: 1px solid black;
 }
 
 .react-grid-item {

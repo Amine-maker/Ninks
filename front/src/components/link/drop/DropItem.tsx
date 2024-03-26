@@ -27,13 +27,13 @@ const DropItem: React.FC<DropItemProps> = ({ name, icon }) => {
     <div
       onDragEnter={handleDrag}
       onDrop={handleDrop}
-      draggable={true}
+      draggable
       onDragStart={(e) => {
         e.dataTransfer.setData("text/plain", "");
       }}
-      className="dropItem relative "
+      className="dropItem relative"
     >
-      <div className="absolute left-0 top-0 size-full shadow-themeInset"></div>
+      <div className="absolute left-0 top-0 size-full shadow-theme"></div>
       <div className="flex">
         <div className="flex flex-1 basis-[25%] items-center justify-center bg-gray-200">
           <IconSet icon="DragIndicator" />

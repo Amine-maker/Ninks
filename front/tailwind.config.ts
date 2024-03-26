@@ -85,7 +85,6 @@ module.exports = {
       boxShadow: {
         min: "0px 0px 3px 0px #a1a1a136;",
         theme: "0px 1px 3px 0px rgba(16, 24, 40, 0.05)",
-        themeInset: "inset 1px -6px 12px #7a7a7a30",
         layoutItem: "0px 1px 2px 0px rgba(196, 196, 196, 0.25)",
       },
       borderRadius: {
